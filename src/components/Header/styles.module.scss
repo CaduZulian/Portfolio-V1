@@ -1,0 +1,173 @@
+.header {
+  display: flex;
+  justify-content: center;
+
+  width: 100vw;
+  height: fit-content;
+
+  background: var(--gray-100);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5rem;
+
+  width: 100%;
+  max-width: 1600px;
+  height: fit-content;
+
+  .logo {
+    font-size: 2.25rem;
+    font-weight: 700;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .buttonsGroup {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    width: fit-content;
+    height: fit-content;
+
+    a {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.125rem;
+      line-height: 150%;
+      text-decoration: none;
+
+      color: var(--white);
+
+      transition: all 0.2s ease-in;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--green-500);
+    }
+  }
+
+  .menuButton {
+    display: none;
+
+    svg {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+}
+
+.changeLang {
+  border-radius: 50%;
+
+  img {
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+
+  width: max(50%, 300px);
+  height: 100%;
+
+  padding: 1rem 2.5rem;
+  gap: 2.5rem;
+
+  right: min(-55%, -310px);
+
+  background-color: var(--gray-100);
+  box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.2s ease-in;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: fit-content;
+
+    .onCloseButton {
+      svg {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
+
+  .buttonsList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+
+    width: fit-content;
+    height: fit-content;
+
+    a {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.125rem;
+      line-height: 150%;
+      text-decoration: none;
+
+      color: var(--white);
+
+      transition: all 0.2s ease-in;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--green-500);
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    padding: 1rem 2.5rem;
+
+    .logo {
+      font-size: 1.75rem;
+    }
+
+    .buttonsGroup {
+      display: none;
+    }
+
+    .menuButton {
+      display: flex;
+    }
+  }
+
+  .menu {
+    padding: 1.25rem 2.5rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    padding: 0.75rem 1.5rem;
+
+    .logo {
+      font-size: 1.5rem;
+    }
+  }
+
+  .menu {
+    padding: 0.875rem 1.5rem;
+  }
+}
