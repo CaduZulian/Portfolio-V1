@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+
+  width: 100vw;
+
+  padding: 1.5rem 10rem;
+
+  main {
+    width: 100%;
+    max-width: 1600px;
+
+    width: 100%;
+  }
+}
+
+.socialMediaIconGroup {
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  margin-left: 5rem;
+
+  gap: 2.5rem;
+
+  a {
+    svg {
+      transition: all 0.2s ease-in;
+
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  a:hover {
+    svg {
+      color: var(--green-500);
+    }
+  }
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  margin-right: 5rem;
+
+  gap: 2.5rem;
+
+  a {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 140%;
+
+    color: var(--white);
+
+    writing-mode: vertical-rl;
+
+    transition: all 0.2s ease-in;
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--green-500);
+  }
+}
+
+.socialMediaIconGroup::after,
+.email::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 0px auto;
+  background-color: var(--white);
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    padding: 1.5rem 5rem;
+  }
+
+  .socialMediaIconGroup {
+    margin-left: 2.5rem;
+  }
+
+  .email {
+    margin-right: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1.5rem 2.5rem;
+  }
+
+  .socialMediaIconGroup {
+    display: none;
+  }
+
+  .email {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    padding: 1.5rem;
+  }
+}

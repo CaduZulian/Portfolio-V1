@@ -29,30 +29,25 @@ export default function Header() {
   };
 
   return (
-    <header className={styles.header}>
-      <section className={styles.container}>
-        <h1 className={styles.logo}>
-          <Link href={"/"}>CaduZulian.dev</Link>
-        </h1>
+    <header className={styles.container}>
+      <h1 className={styles.logo}>
+        <Link href={"/"}>CaduZulian.dev</Link>
+      </h1>
 
-        <div className={styles.buttonsGroup}>
-          <Link href={"#about"}>About me</Link>
-          <Link href={"#carrer"}>Carrer</Link>
-          <Link href={"#projects"}>Projects</Link>
-          <Link href={"#contact-me"}>Contact me</Link>
+      <div className={styles.buttonsGroup}>
+        <Link href={"#about"}>About me</Link>
+        <Link href={"#carrer"}>Carrer</Link>
+        <Link href={"#projects"}>Projects</Link>
+        <Link href={"#contact-me"}>Contact me</Link>
 
-          <button className={styles.changeLang} onClick={changeLanguage}>
-            <Image src={language.icon} alt="language icon" />
-          </button>
-        </div>
-
-        <button
-          className={styles.menuButton}
-          onClick={() => setMenuIsOpen(true)}
-        >
-          <Menu />
+        <button className={styles.changeLang} onClick={changeLanguage}>
+          <Image src={language.icon} alt="language icon" />
         </button>
-      </section>
+      </div>
+
+      <button className={styles.menuButton} onClick={() => setMenuIsOpen(true)}>
+        <Menu />
+      </button>
 
       <section className={styles.menu} style={menuIsOpen ? { right: 0 } : {}}>
         <div className={styles.row}>
@@ -67,7 +62,7 @@ export default function Header() {
             <X />
           </button>
         </div>
-        
+
         <div className={styles.buttonsList}>
           <Link href={"#about"}>About me</Link>
           <Link href={"#carrer"}>Carrer</Link>
