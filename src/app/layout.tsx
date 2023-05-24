@@ -1,6 +1,13 @@
+// context
+import { AppContextProvider } from "@/context/AppContext";
+
+// components
 import Header from "@/components/Header";
-import "./globals.scss";
 import Main from "@/components/Main";
+import Footer from "@/components/Footer";
+
+// styles
+import "./globals.scss";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,9 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
+        <AppContextProvider>
+          <Header />
 
-        <Main>{children}</Main>
+          <Main>{children}</Main>
+
+          <Footer />
+        </AppContextProvider>
       </body>
     </html>
   );

@@ -3,22 +3,19 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "react-feather";
+
+// context
+import { useAppContext } from "@/context/AppContext";
 
 // icons
-import BrazilianIcon from "@/assets/icons/brazilian-icon.svg";
-import UnitedStatesIcon from "@/assets/icons/united-states-icon.svg";
+import { Menu, X } from "react-feather";
 
 // styles
 import styles from "./styles.module.scss";
 
 export default function Header() {
-  const languages = [
-    { name: "pt-br", icon: BrazilianIcon },
-    { name: "en-us", icon: UnitedStatesIcon },
-  ];
+  const { languages, language, setLanguage } = useAppContext();
 
-  const [language, setLanguage] = useState(languages[0]);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const changeLanguage = () => {
