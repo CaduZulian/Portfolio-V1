@@ -1,30 +1,24 @@
 'use client';
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react';
 
-// icons
-import BrazilianIcon from "@/assets/icons/brazilian-icon.svg";
-import UnitedStatesIcon from "@/assets/icons/united-states-icon.svg";
+import { languages, translations } from '@/constants';
 
 // types
-import { AppContextProps } from "./models";
+import { AppContextProps } from './models';
 
 const AppContext = createContext({} as AppContextProps);
-export const languages = [
-  { name: "pt-br", icon: BrazilianIcon },
-  { name: "en", icon: UnitedStatesIcon },
-];
 
 function AppContextProvider({ children }: any) {
-  const languages = [
-    { name: "pt-br", icon: BrazilianIcon },
-    { name: "en", icon: UnitedStatesIcon },
-  ];
-
   const [language, setLanguage] = useState(languages[0]);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  const t = translations[language.name];
 
   return (
-    <AppContext.Provider value={{ languages, language, setLanguage }}>
+    <AppContext.Provider
+      value={{ t, menuIsOpen, setMenuIsOpen, language, setLanguage }}
+    >
       {children}
     </AppContext.Provider>
   );

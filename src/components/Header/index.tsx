@@ -1,22 +1,26 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { useMemo } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+
+import { languages } from '@/constants';
 
 // context
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from '@/context/AppContext';
+
+// components
+import MenuSidebar from './components/MenuSidebar';
 
 // icons
-import { Menu, X } from "react-feather";
+import { Menu } from 'react-feather';
 
 // styles
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 export default function Header() {
-  const { languages, language, setLanguage } = useAppContext();
-
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const { t, setMenuIsOpen, menuIsOpen, language, setLanguage } =
+    useAppContext();
 
   const changeLanguage = () => {
     const index = languages.findIndex((lang) => lang.name === language.name);
@@ -25,48 +29,40 @@ export default function Header() {
     setLanguage(languages[nextIndex]);
   };
 
+  const menuItems = useMemo(() => {
+    return ['about', 'carrer', 'projects', 'contactMe'] as const;
+  }, []);
+
   return (
-    <header className={styles.container}>
-      <h1 className={styles.logo}>
-        <Link href={"/"}>CaduZulian.dev</Link>
-      </h1>
+    <>
+      <header
+        className={styles.container}
+        style={menuIsOpen ? { filter: 'blur(0.5rem)' } : {}}
+      >
+        <h1 className={styles.logo}>
+          <Link href={'/'}>{t.siteName}</Link>
+        </h1>
 
-      <div className={styles.buttonsGroup}>
-        <Link href={"#about"}>About me</Link>
-        <Link href={"#carrer"}>Carrer</Link>
-        <Link href={"#projects"}>Projects</Link>
-        <Link href={"#contact-me"}>Contact me</Link>
+        <div className={styles.buttonsGroup}>
+          {menuItems.map((item) => (
+            <Link href={`#${item}`} key={item}>
+              {t.header[item]}
+            </Link>
+          ))}
 
-        <button className={styles.changeLang} onClick={changeLanguage}>
-          <Image src={language.icon} alt="language icon" />
-        </button>
-      </div>
-
-      <button className={styles.menuButton} onClick={() => setMenuIsOpen(true)}>
-        <Menu />
-      </button>
-
-      <section className={styles.menu} style={menuIsOpen ? { right: 0 } : {}}>
-        <div className={styles.row}>
           <button className={styles.changeLang} onClick={changeLanguage}>
-            <Image src={language.icon} alt="language icon" />
-          </button>
-
-          <button
-            className={styles.onCloseButton}
-            onClick={() => setMenuIsOpen(false)}
-          >
-            <X />
+            <Image src={language.icon} alt={t.header.languageButtonAlt} />
           </button>
         </div>
 
-        <div className={styles.buttonsList}>
-          <Link href={"#about"}>About me</Link>
-          <Link href={"#carrer"}>Carrer</Link>
-          <Link href={"#projects"}>Projects</Link>
-          <Link href={"#contact-me"}>Contact me</Link>
-        </div>
-      </section>
-    </header>
+        <button
+          className={styles.menuButton}
+          onClick={() => setMenuIsOpen(true)}
+        >
+          <Menu />
+        </button>
+      </header>
+      <MenuSidebar changeLanguage={changeLanguage} menuItems={menuItems} />
+    </>
   );
 }

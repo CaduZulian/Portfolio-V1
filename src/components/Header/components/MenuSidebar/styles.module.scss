@@ -1,0 +1,80 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+
+  width: max(50%, 300px);
+  height: 100%;
+
+  padding: 1rem 2.5rem;
+  gap: 2.5rem;
+
+  right: min(-55%, -310px);
+  top: 0;
+
+  z-index: 1;
+
+  background-color: var(--gray-100);
+  box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.2s ease-in;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: fit-content;
+
+    img {
+      width: 2rem;
+      height: 2rem;
+
+      border-radius: 50%;
+    }
+
+    .onCloseButton {
+      svg {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
+
+  .buttonsList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+
+    width: fit-content;
+    height: fit-content;
+
+    a {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.125rem;
+      line-height: 150%;
+      text-decoration: none;
+
+      color: var(--white);
+
+      transition: all 0.2s ease-in;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--green-500);
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    padding: 1.25rem 2.5rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 0.875rem 1.5rem;
+  }
+}

@@ -9,6 +9,8 @@
   width: 100%;
   height: fit-content;
 
+  transition: all 0.2s ease-in;
+
   .socialMediaIcons {
     display: none;
 
@@ -21,12 +23,12 @@
       svg {
         color: var(--gray-500);
         transition: all 0.2s ease-in;
-  
+
         height: 1.5rem;
         width: 1.5rem;
       }
     }
-  
+
     a:hover {
       svg {
         color: var(--green-500);

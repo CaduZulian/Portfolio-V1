@@ -1,40 +1,47 @@
-import Link from "next/link";
-import { useMemo } from "react";
+'use client';
+
+import { useMemo } from 'react';
+import Link from 'next/link';
+
+// context
+import { useAppContext } from '@/context/AppContext';
 
 // icons
-import { GitHub, Instagram, Linkedin, Mail } from "react-feather";
+import { GitHub, Instagram, Linkedin, Mail } from 'react-feather';
 
 // styles
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 export default function Footer() {
+  const { t, menuIsOpen } = useAppContext();
+
   const socialMediaUrls = useMemo(() => {
     const urls = [];
 
-    if (process.env.LINKEDIN_URL) {
+    if (process.env.NEXT_PUBLIC_LINKEDIN_URL) {
       urls.push({
-        url: process.env.LINKEDIN_URL,
+        url: process.env.NEXT_PUBLIC_LINKEDIN_URL,
         icon: <Linkedin />,
       });
     }
 
-    if (process.env.GITHUB_URL) {
+    if (process.env.NEXT_PUBLIC_GITHUB_URL) {
       urls.push({
-        url: process.env.GITHUB_URL,
+        url: process.env.NEXT_PUBLIC_GITHUB_URL,
         icon: <GitHub />,
       });
     }
 
-    if (process.env.INSTAGRAM_URL) {
+    if (process.env.NEXT_PUBLIC_INSTAGRAM_URL) {
       urls.push({
-        url: process.env.INSTAGRAM_URL,
+        url: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
         icon: <Instagram />,
       });
     }
 
-    if (process.env.EMAIL) {
+    if (process.env.NEXT_PUBLIC_EMAIL) {
       urls.push({
-        url: `mailto:${process.env.EMAIL}?subject=Contato pelo portfolio`,
+        url: `mailto:${process.env.NEXT_PUBLIC_EMAIL}?subject=Contato pelo portfolio`,
         icon: <Mail />,
       });
     }
@@ -43,16 +50,21 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className={styles.container}>
+    <footer
+      className={styles.container}
+      style={menuIsOpen ? { filter: 'blur(0.5rem)' } : {}}
+    >
       <div className={styles.socialMediaIcons}>
         {socialMediaUrls.map(({ url, icon }) => (
-          <Link href={url} key={url} target="_blank">
+          <Link href={url} key={url} target='_blank'>
             {icon}
           </Link>
         ))}
       </div>
 
-      <span>© CaduZulian.dev - {new Date().getFullYear()}</span>
+      <span>
+        © {t.siteName} - {new Date().getFullYear()}
+      </span>
     </footer>
   );
 }

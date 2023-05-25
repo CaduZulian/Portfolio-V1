@@ -1,13 +1,11 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react';
+
+import { ILanguages, translations } from '@/constants';
 
 export interface AppContextProps {
-  languages: {
-    name: string;
-    icon: any;
-  }[];
-  language: {
-    name: string;
-    icon: any;
-  };
-  setLanguage: Dispatch<SetStateAction<{ name: string; icon: any }>>;
+  t: (typeof translations)['pt' | 'en'];
+  language: ILanguages;
+  setLanguage: Dispatch<SetStateAction<ILanguages>>;
+  menuIsOpen: boolean;
+  setMenuIsOpen: Dispatch<SetStateAction<boolean>>;
 }
