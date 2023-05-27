@@ -4,19 +4,18 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { languages } from '@/constants';
+import styles from './styles.module.scss';
+
+import { languages } from '@/app/constants';
 
 // context
-import { useAppContext } from '@/context/AppContext';
+import { useAppContext } from '@/app/context/AppContext';
 
 // components
 import MenuSidebar from './components/MenuSidebar';
 
 // icons
 import { Menu } from 'react-feather';
-
-// styles
-import styles from './styles.module.scss';
 
 export default function Header() {
   const { t, setMenuIsOpen, menuIsOpen, language, setLanguage } =
@@ -62,6 +61,7 @@ export default function Header() {
           <Menu />
         </button>
       </header>
+
       <MenuSidebar changeLanguage={changeLanguage} menuItems={menuItems} />
     </>
   );

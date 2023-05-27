@@ -1,7 +1,24 @@
+import styles from './styles.module.scss';
+
+// pages
+import About from '@/app/components/Pages/About';
+import Carrer from '@/app/components/Pages/Carrer';
+import Contact from '@/app/components/Pages/Contact';
+import Introduction from '@/app/components/Pages/Introduction';
+import Projects from '@/app/components/Pages/Projects';
+
 export default function Home() {
   return (
-    <div>
-      <h1>Next.js + TypeScript</h1>
-    </div>
+    <section className={styles.container}>
+      <Introduction />
+
+      <About />
+
+      <Carrer />
+
+      <Projects />
+
+      <Contact />
+    </section>
   );
 }

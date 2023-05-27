@@ -1,6 +1,6 @@
 // icons
-import BrazilianIcon from '@/assets/icons/brazilian-icon.svg';
-import UnitedStatesIcon from '@/assets/icons/united-states-icon.svg';
+import BrazilianIcon from '@/app/assets/icons/brazilian-icon.svg';
+import UnitedStatesIcon from '@/app/assets/icons/united-states-icon.svg';
 
 export interface ILanguages {
   name: 'pt' | 'en';

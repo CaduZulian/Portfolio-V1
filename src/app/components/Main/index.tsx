@@ -3,14 +3,13 @@
 import { useMemo } from 'react';
 import Link from 'next/link';
 
+import styles from './styles.module.scss';
+
 // context
-import { useAppContext } from '@/context/AppContext';
+import { useAppContext } from '@/app/context/AppContext';
 
 // icons
 import { GitHub, Instagram, Linkedin } from 'react-feather';
-
-// styles
-import styles from './styles.module.scss';
 
 export default function Main({ children }: { children: React.ReactNode }) {
   const { menuIsOpen } = useAppContext();

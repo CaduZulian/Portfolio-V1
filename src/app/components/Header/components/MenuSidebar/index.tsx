@@ -2,15 +2,15 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+import styles from './styles.module.scss';
 
 // context
-import { useAppContext } from '@/context/AppContext';
+import { useAppContext } from '@/app/context/AppContext';
 
 // icons
 import { X } from 'react-feather';
-
-// styles
-import styles from './styles.module.scss';
 
 // types
 import { MenuSidebarProps } from './models';
@@ -21,12 +21,20 @@ export default function MenuSidebar({
 }: MenuSidebarProps) {
   const { t, menuIsOpen, setMenuIsOpen, language } = useAppContext();
 
+  const MotionLink = motion(Link);
+
   return (
     <aside className={styles.menu} style={menuIsOpen ? { right: 0 } : {}}>
       <div className={styles.row}>
-        <button onClick={changeLanguage}>
+        <motion.button
+          onClick={changeLanguage}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
           <Image src={language.icon} alt={t.header.languageButtonAlt} />
-        </button>
+        </motion.button>
 
         <button
           className={styles.onCloseButton}
@@ -37,14 +45,18 @@ export default function MenuSidebar({
       </div>
 
       <div className={styles.buttonsList}>
-        {menuItems.map((item) => (
-          <Link
+        {menuItems.map((item, index) => (
+          <MotionLink
             href={`#${item}`}
             key={item}
             onClick={() => setMenuIsOpen(false)}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, delay: index * 0.1 }}
           >
             {t.header[item]}
-          </Link>
+          </MotionLink>
         ))}
       </div>
     </aside>

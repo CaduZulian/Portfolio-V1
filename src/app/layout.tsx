@@ -1,10 +1,10 @@
 // context
-import { AppContextProvider } from '@/context/AppContext';
+import { AppContextProvider } from '@/app/context/AppContext';
 
 // components
-import Header from '@/components/Header';
-import Main from '@/components/Main';
-import Footer from '@/components/Footer';
+import Header from '@/app/components/Header';
+import Main from '@/app/components/Main';
+import Footer from '@/app/components/Footer';
 
 // styles
 import './globals.scss';
