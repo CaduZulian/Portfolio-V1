@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import styles from './styles.module.scss';
 
@@ -41,6 +42,8 @@ export default function Main({ children }: { children: React.ReactNode }) {
     return urls;
   }, []);
 
+  const MotionLink = motion(Link);
+
   return (
     <section
       className={styles.container}
@@ -48,10 +51,20 @@ export default function Main({ children }: { children: React.ReactNode }) {
     >
       {socialMediaUrls.length > 0 ? (
         <aside className={styles.socialMediaIconGroup}>
-          {socialMediaUrls.map(({ url, icon }) => (
-            <Link href={url} key={url} target='_blank'>
+          {socialMediaUrls.map(({ url, icon }, index) => (
+            <MotionLink
+              href={url}
+              key={url}
+              target='_blank'
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: (socialMediaUrls.length - index) * 0.1,
+              }}
+            >
               {icon}
-            </Link>
+            </MotionLink>
           ))}
         </aside>
       ) : null}
@@ -60,12 +73,17 @@ export default function Main({ children }: { children: React.ReactNode }) {
 
       {process.env.NEXT_PUBLIC_EMAIL ? (
         <aside className={styles.email}>
-          <Link
+          <MotionLink
             href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}?subject=Contato pelo portfolio`}
             target='_blank'
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+            }}
           >
             {process.env.NEXT_PUBLIC_EMAIL}
-          </Link>
+          </MotionLink>
         </aside>
       ) : null}
     </section>

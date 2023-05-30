@@ -18,8 +18,7 @@ reutilizá-lo sem grandes mudanças
 - **[SASS](https://sass-lang.com/)**
 - **[Framer-motion](https://www.framer.com/motion/)**
 
-> Veja o arquivo
-> [package.json](https://github.com/CaduZulian/Portfolio-V1/blob/main/package.json)
+> Veja o arquivo [package.json](https://github.com/CaduZulian/Portfolio-V1/blob/main/package.json)
 
 ## Variáveis de ambiente
 
@@ -84,7 +83,8 @@ $ yarn start
 
 ## TODO's
 
-Para a primeira versão, ficou faltando um bloco de informações voltado as skills. Uma possível atualização seria adicionar esse bloco
+Para a primeira versão, ficou faltando um bloco de informações voltado as skills. 
+Uma possível atualização seria adicionar esse bloco
 
 ## Desenvolvedores
 

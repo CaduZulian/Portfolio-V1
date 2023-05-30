@@ -4,10 +4,9 @@
   align-items: center;
 
   width: 100%;
+  height: calc(100vh - 6rem);
 
   gap: 2rem;
-
-  margin: 5vh 0;
 
   .userData {
     display: flex;
@@ -78,6 +77,8 @@
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    height: fit-content;
+    margin: 5vh 0;
 
     .userData {
       width: 80%;

@@ -20,7 +20,6 @@ export default function Introduction() {
         className={styles.userData}
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
         transition={{ duration: 0.5 }}
       >
         <div className={styles.dataGroup}>
@@ -36,7 +35,6 @@ export default function Introduction() {
             color='green'
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {t.introduction.downloadCV}
@@ -46,7 +44,6 @@ export default function Introduction() {
             color='white'
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {t.introduction.learnMore}
@@ -58,7 +55,6 @@ export default function Introduction() {
         className={styles.userImage}
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: 100 }}
         transition={{ duration: 0.5 }}
       >
         <Image
