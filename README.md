@@ -27,6 +27,7 @@ Para que seja possível rodar o projeto, é necessário inserir em um arquivo
 
 - `NEXT_PUBLIC_EMAIL`
 - `NEXT_PUBLIC_GITHUB_USERNAME`\*
+- `NEXT_PUBLIC_GA_TRACKING_ID`
 - `NEXT_PUBLIC_GITHUB_URL`
 - `NEXT_PUBLIC_LINKEDIN_URL`
 - `NEXT_PUBLIC_INSTAGRAM_URL`
