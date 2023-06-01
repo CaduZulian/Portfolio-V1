@@ -12,7 +12,14 @@ export default function About() {
 
   return (
     <section className={styles.container} id='about'>
-      <motion.h1 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+      <motion.h1
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 1 },
+        }}
+      >
         {t.aboutMe.title}
       </motion.h1>
 
@@ -24,6 +31,10 @@ export default function About() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: index * 0.1 }}
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 1 },
+            }}
           >
             {t.aboutMe[`paragraph${index + 1}` as keyof typeof t.aboutMe]}
           </motion.p>

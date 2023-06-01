@@ -10,8 +10,9 @@ import Footer from '@/app/components/Footer';
 import './globals.scss';
 
 export const metadata = {
-  title: 'CaduZulian.dev',
-  description: "CaduZulian.dev - Cadu Zulian's personal website",
+  title: 'CaduZulian | Web Developer',
+  description:
+    'Carlos Eduardo Zulian is a Web Developer  who builds accessible, inclusive products and digital experiences for the web.',
 };
 
 export default function RootLayout({

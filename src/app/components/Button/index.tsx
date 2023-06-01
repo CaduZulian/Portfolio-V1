@@ -22,6 +22,10 @@ export default function Button({ children, color, ...rest }: ButtonProps) {
           ? { border: '1px solid var(--white)' }
           : {}
       }
+      whileHover={{
+        transition: { duration: 0.2 },
+        filter: 'brightness(0.7)',
+      }}
       {...rest}
     >
       {children}

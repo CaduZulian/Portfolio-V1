@@ -50,7 +50,18 @@ export default function Main({ children }: { children: React.ReactNode }) {
       style={menuIsOpen ? { filter: 'blur(0.5rem)' } : {}}
     >
       {socialMediaUrls.length > 0 ? (
-        <aside className={styles.socialMediaIconGroup}>
+        <motion.aside
+          className={styles.socialMediaIconGroup}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{
+            duration: 0.5,
+          }}
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 1 },
+          }}
+        >
           {socialMediaUrls.map(({ url, icon }, index) => (
             <MotionLink
               href={url}
@@ -66,13 +77,24 @@ export default function Main({ children }: { children: React.ReactNode }) {
               {icon}
             </MotionLink>
           ))}
-        </aside>
+        </motion.aside>
       ) : null}
 
       <main>{children}</main>
 
       {process.env.NEXT_PUBLIC_EMAIL ? (
-        <aside className={styles.email}>
+        <motion.aside
+          className={styles.email}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{
+            duration: 0.5,
+          }}
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 1 },
+          }}
+        >
           <MotionLink
             href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}?subject=Contato pelo portfolio`}
             target='_blank'
@@ -84,7 +106,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
           >
             {process.env.NEXT_PUBLIC_EMAIL}
           </MotionLink>
-        </aside>
+        </motion.aside>
       ) : null}
     </section>
   );

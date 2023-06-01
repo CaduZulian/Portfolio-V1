@@ -9,3 +9,4 @@ dist
 yarn.lock
 package-lock.json
 *.html
+*.md
