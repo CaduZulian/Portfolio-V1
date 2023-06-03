@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 import { useAppContext } from '@/app/context/AppContext';
 
 // components
-import Button from '../../Button';
+import { ButtonLink } from '../../ButtonLink';
 
 export default function Introduction() {
   const { t, githubUserData } = useAppContext();
@@ -27,16 +27,18 @@ export default function Introduction() {
         }}
       >
         <div className={styles.dataGroup}>
-          <h1>
+          <h2>
             {t.introduction.title1} <br /> {t.introduction.title2}
-          </h1>
+          </h2>
 
           <span>{t.introduction.subtitle}</span>
         </div>
 
         <div className={styles.buttonsGroup}>
-          <Button
+          <ButtonLink
             color='green'
+            href={process.env.NEXT_PUBLIC_CV_URL ?? ''}
+            target='_blank'
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -46,10 +48,11 @@ export default function Introduction() {
             }}
           >
             {t.introduction.downloadCV}
-          </Button>
+          </ButtonLink>
 
-          <Button
+          <ButtonLink
             color='white'
+            href='#about'
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -59,7 +62,7 @@ export default function Introduction() {
             }}
           >
             {t.introduction.learnMore}
-          </Button>
+          </ButtonLink>
         </div>
       </motion.section>
 

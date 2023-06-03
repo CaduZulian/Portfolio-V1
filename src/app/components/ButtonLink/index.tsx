@@ -1,17 +1,27 @@
 import { ComponentProps } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 import styles from './styles.module.scss';
 
-type ButtonProps = ComponentProps<typeof motion.button> & {
+type ButtonLinkProps = ComponentProps<typeof motion.a> & {
   children: React.ReactNode;
   color: 'green' | 'white';
+  href: string;
 };
 
-export const Button = ({ children, color, ...rest }: ButtonProps) => {
+export const ButtonLink = ({
+  children,
+  href,
+  color,
+  ...rest
+}: ButtonLinkProps) => {
+  const MotionLink: any = motion(Link);
+
   return (
-    <motion.button
+    <MotionLink
       className={styles.container}
+      href={href}
       style={
         color === 'green'
           ? {
@@ -29,6 +39,6 @@ export const Button = ({ children, color, ...rest }: ButtonProps) => {
       {...rest}
     >
       {children}
-    </motion.button>
+    </MotionLink>
   );
 };

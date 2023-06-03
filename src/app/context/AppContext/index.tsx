@@ -5,7 +5,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { languages, translations } from '@/app/constants';
 
 // types
-import { AppContextProps } from './models';
+import { AppContextProps, IGithubRepository } from './models';
 
 const AppContext = createContext({} as AppContextProps);
 
@@ -42,7 +42,21 @@ function AppContextProvider({ children }: any) {
     );
     const data = await response.json();
 
-    setGithubReposData(data);
+    let filteredData = [];
+
+    for (const repo of data) {
+      const repoImage = await fetch(
+        `https://raw.githubusercontent.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/${repo.name}/main/github/project-image.png`
+      );
+
+      if (repoImage.status === 200 && repo.description !== null) {
+        filteredData.push(repo);
+      }
+    }
+
+    console.log(filteredData);
+
+    setGithubReposData(filteredData);
   };
 
   useEffect(() => {

@@ -27,6 +27,10 @@ export const translations = {
       paragraph4:
         'Atualmente estou cursando o curso de Ciência da Computação, e estou sempre buscando aprender mais sobre o ramo de desenvolvimento web.',
     },
+    projects: {
+      title: 'Projetos',
+      viewMore: 'Ver mais',
+    },
   },
   en: {
     siteName: 'CaduZulian.dev',
@@ -55,6 +59,10 @@ export const translations = {
         'I started working as a web developer in 2021, where I worked with web application development using React and NodeJS, and learned a lot about Scrum, design system, TDD, etc.',
       paragraph4:
         "I'm currently taking a Computer Science course, and I'm always looking to learn more about web development.",
+    },
+    projects: {
+      title: 'Projects',
+      viewMore: 'View more',
     },
   },
 };

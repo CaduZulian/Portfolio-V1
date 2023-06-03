@@ -12,7 +12,7 @@ export default function About() {
 
   return (
     <section className={styles.container} id='about'>
-      <motion.h1
+      <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -21,7 +21,7 @@ export default function About() {
         }}
       >
         {t.aboutMe.title}
-      </motion.h1>
+      </motion.h2>
 
       {Array(4)
         .fill(0)

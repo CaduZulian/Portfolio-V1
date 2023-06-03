@@ -1,7 +1,7 @@
 export default function Carrer() {
   return (
     <div>
-      <h1>Carrer</h1>
+      <h2>Carrer</h2>
     </div>
   );
 }
