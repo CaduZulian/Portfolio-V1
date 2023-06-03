@@ -8,6 +8,7 @@ import styles from './styles.module.scss';
 
 // context
 import { useAppContext } from '@/app/context/AppContext';
+import { useTranslation } from '@/app/context/TranslateContext';
 
 // icons
 import { X } from 'react-feather';
@@ -19,7 +20,8 @@ export default function MenuSidebar({
   changeLanguage,
   menuItems,
 }: MenuSidebarProps) {
-  const { t, menuIsOpen, setMenuIsOpen, language } = useAppContext();
+  const { menuIsOpen, setMenuIsOpen } = useAppContext();
+  const { t, language } = useTranslation();
 
   const MotionLink = motion(Link);
 

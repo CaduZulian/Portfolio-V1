@@ -7,12 +7,14 @@ import styles from './styles.module.scss';
 
 // context
 import { useAppContext } from '@/app/context/AppContext';
+import { useTranslation } from '@/app/context/TranslateContext';
 
 // components
 import { ButtonLink } from '../../ButtonLink';
 
 export default function Introduction() {
-  const { t, githubUserData } = useAppContext();
+  const { githubUserData } = useAppContext();
+  const { t } = useTranslation();
 
   return (
     <section className={styles.container} id='introduction'>

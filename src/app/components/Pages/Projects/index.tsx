@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 import styles from './styles.module.scss';
 
 // context
-import { useAppContext } from '@/app/context/AppContext';
+import { useTranslation } from '@/app/context/TranslateContext';
 
 // components
 import { RepoCards } from './components/RepoCards';
 import { ButtonLink } from '../../ButtonLink';
 
 export default function Projects() {
-  const { t } = useAppContext();
+  const { t } = useTranslation();
 
   return (
     <section className={styles.container} id='projects'>

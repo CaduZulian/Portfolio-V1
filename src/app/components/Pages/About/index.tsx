@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import styles from './styles.module.scss';
 
 // context
-import { useAppContext } from '@/app/context/AppContext';
+import { useTranslation } from '@/app/context/TranslateContext';
 
 export default function About() {
-  const { t } = useAppContext();
+  const { t } = useTranslation();
 
   return (
     <section className={styles.container} id='about'>

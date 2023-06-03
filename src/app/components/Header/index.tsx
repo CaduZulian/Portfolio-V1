@@ -10,6 +10,7 @@ import { languages } from '@/app/constants';
 
 // context
 import { useAppContext } from '@/app/context/AppContext';
+import { useTranslation } from '@/app/context/TranslateContext';
 
 // components
 import MenuSidebar from './components/MenuSidebar';
@@ -18,8 +19,8 @@ import MenuSidebar from './components/MenuSidebar';
 import { Menu } from 'react-feather';
 
 export default function Header() {
-  const { t, setMenuIsOpen, menuIsOpen, language, setLanguage } =
-    useAppContext();
+  const { setMenuIsOpen, menuIsOpen } = useAppContext();
+  const { t, language, setLanguage } = useTranslation();
 
   const changeLanguage = () => {
     const index = languages.findIndex((lang) => lang.name === language.name);

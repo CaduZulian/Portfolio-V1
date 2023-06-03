@@ -2,20 +2,14 @@
 
 import { createContext, useContext, useState, useEffect } from 'react';
 
-import { languages, translations } from '@/app/constants';
-
 // types
-import { AppContextProps, IGithubRepository } from './models';
+import { AppContextProps } from './models';
 
 const AppContext = createContext({} as AppContextProps);
 
 function AppContextProvider({ children }: any) {
-  const [language, setLanguage] = useState(languages[0]);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [githubUserData, setGithubUserData] = useState({} as any);
-  const [githubReposData, setGithubReposData] = useState({} as any);
-
-  const t = translations[language.name];
 
   const getGithubUserData = async () => {
     const response = await fetch(
@@ -31,49 +25,16 @@ function AppContextProvider({ children }: any) {
     setGithubUserData(data);
   };
 
-  const getGithubReposData = async () => {
-    const response = await fetch(
-      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
-      {
-        next: {
-          revalidate: 60 * 60, // 1 hour
-        },
-      }
-    );
-    const data = await response.json();
-
-    let filteredData = [];
-
-    for (const repo of data) {
-      const repoImage = await fetch(
-        `https://raw.githubusercontent.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/${repo.name}/main/github/project-image.png`
-      );
-
-      if (repoImage.status === 200 && repo.description !== null) {
-        filteredData.push(repo);
-      }
-    }
-
-    console.log(filteredData);
-
-    setGithubReposData(filteredData);
-  };
-
   useEffect(() => {
     getGithubUserData();
-    getGithubReposData();
   }, []);
 
   return (
     <AppContext.Provider
       value={{
-        t,
         githubUserData,
-        githubReposData,
         menuIsOpen,
         setMenuIsOpen,
-        language,
-        setLanguage,
       }}
     >
       {children}

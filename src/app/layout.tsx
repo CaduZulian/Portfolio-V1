@@ -1,5 +1,6 @@
 // context
 import { AppContextProvider } from '@/app/context/AppContext';
+import { TranslateContextProvider } from './context/TranslateContext';
 
 // components
 import Header from '@/app/components/Header';
@@ -23,13 +24,15 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <AppContextProvider>
-          <Header />
+        <TranslateContextProvider>
+          <AppContextProvider>
+            <Header />
 
-          <Main>{children}</Main>
+            <Main>{children}</Main>
 
-          <Footer />
-        </AppContextProvider>
+            <Footer />
+          </AppContextProvider>
+        </TranslateContextProvider>
       </body>
     </html>
   );

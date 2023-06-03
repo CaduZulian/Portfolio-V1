@@ -31,6 +31,12 @@ export const translations = {
       title: 'Projetos',
       viewMore: 'Ver mais',
     },
+    carrer: {
+      title: 'Carreira',
+    },
+    contact: {
+      title: 'Entre em contato',
+    },
   },
   en: {
     siteName: 'CaduZulian.dev',
@@ -63,6 +69,12 @@ export const translations = {
     projects: {
       title: 'Projects',
       viewMore: 'View more',
+    },
+    carrer: {
+      title: 'Carrer',
+    },
+    contact: {
+      title: 'Get in touch',
     },
   },
 };

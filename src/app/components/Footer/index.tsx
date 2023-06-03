@@ -7,12 +7,14 @@ import styles from './styles.module.scss';
 
 // context
 import { useAppContext } from '@/app/context/AppContext';
+import { useTranslation } from '@/app/context/TranslateContext';
 
 // icons
 import { GitHub, Instagram, Linkedin, Mail } from 'react-feather';
 
 export default function Footer() {
-  const { t, menuIsOpen } = useAppContext();
+  const { menuIsOpen } = useAppContext();
+  const { t } = useTranslation();
 
   const socialMediaUrls = useMemo(() => {
     const urls = [];
