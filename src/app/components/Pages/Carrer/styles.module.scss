@@ -54,12 +54,15 @@
 
   .main {
     display: flex;
+    justify-content: center;
 
     width: 100%;
 
-    gap: 1rem;
+    gap: 1.5rem;
 
     .list {
+      width: 40%;
+
       .listItem {
         width: 100%;
         height: fit-content;
@@ -77,12 +80,14 @@
           font-size: 1rem;
           line-height: 140%;
 
+          text-align: start;
+
           transition: all 0.2s ease-in;
         }
 
         .subList {
           .subListItem {
-            width: 100%;
+            width: calc(100% - 3rem);
             height: fit-content;
 
             list-style: circle;
@@ -91,9 +96,14 @@
             transition: all 0.2s ease-in;
 
             > button {
-              width: fit-content;
+              display: flex;
+              justify-content: flex-start;
+
+              width: 100%;
 
               padding: 0.5rem 0;
+
+              text-align: start;
 
               font-weight: 500;
               font-size: 1rem;
@@ -119,6 +129,70 @@
         > button:first-child {
           color: var(--green-500);
         }
+      }
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      width: 60%;
+
+      .detailsTitle {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        h3 {
+          font-weight: 700;
+          font-size: 1.125rem;
+          line-height: 150%;
+
+          a {
+            color: var(--green-500);
+          }
+        }
+
+        span {
+          font-weight: 400;
+          font-size: 1rem;
+          line-height: 150%;
+
+          color: var(--gray-500);
+        }
+      }
+
+      .detailsDescription {
+        li {
+          margin-left: 1rem;
+          list-style: disc;
+          color: var(--green-500);
+
+          + li {
+            margin-top: 0.75rem;
+          }
+
+          p {
+            font-weight: 500;
+            font-size: 1.125rem;
+            line-height: 150%;
+
+            color: var(--white);
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+
+      .list {
+        width: 100%;
+      }
+
+      .details {
+        width: 100%;
       }
     }
   }

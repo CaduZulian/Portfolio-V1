@@ -33,6 +33,7 @@ export const translations = {
     },
     carrer: {
       title: 'Carreira',
+      present: 'Presente',
     },
     contact: {
       title: 'Entre em contato',
@@ -72,6 +73,7 @@ export const translations = {
     },
     carrer: {
       title: 'Carrer',
+      present: 'Present',
     },
     contact: {
       title: 'Get in touch',

@@ -1,20 +1,25 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { format } from 'date-fns';
+import Link from 'next/link';
 
 import styles from './styles.module.scss';
 
-import { IDescription, carrer } from '@/app/constants';
+import { IDescription, carrerWithTranslations } from '@/app/constants';
 
 // context
 import { useTranslation } from '@/app/context/TranslateContext';
-import Link from 'next/link';
 
 export default function Carrer() {
   const buttonsContainerRef = useRef(null);
 
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+
+  const carrer = useMemo(() => {
+    return carrerWithTranslations[language.name];
+  }, [language]);
 
   const [currentTab, setCurrentTab] = useState(0);
   const [buttonStyles, setButtonStyles] = useState<
@@ -63,15 +68,21 @@ export default function Carrer() {
         })
       );
     }
-  }, [buttonsContainerRef]);
+  }, [buttonsContainerRef, carrer]);
 
   useEffect(() => {
+    setSelectedListItem(0);
     setSelectedListSubItem(0);
-  }, [currentTab, setSelectedListItem]);
+    setDescriptionData(
+      carrer[currentTab].list[0].subItems?.[0].description ??
+        carrer[currentTab].list[0].description
+    );
+  }, [currentTab, setSelectedListItem, carrer]);
 
   return (
     <section className={styles.container}>
       <motion.h2
+        id='carrer'
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -127,6 +138,7 @@ export default function Carrer() {
                 }}
               >
                 <button
+                  title={item.name}
                   onClick={() => {
                     setSelectedListItem(index);
                     !item?.subItems && setDescriptionData(item.description);
@@ -138,15 +150,26 @@ export default function Carrer() {
                 {item?.subItems && selectedListItem === index ? (
                   <ul className={styles.subList}>
                     {item?.subItems.map((subItem, subItemIndex) => (
-                      <li
+                      <motion.li
                         key={subItem.name}
                         className={`${styles.subListItem} ${
                           selectedListSubItem === subItemIndex
                             ? styles.activeSubItem
                             : ''
                         }`}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.5,
+                          delay: subItemIndex * 0.1,
+                        }}
+                        variants={{
+                          hidden: { opacity: 1 },
+                        }}
                       >
                         <button
+                          title={subItem.name}
                           onClick={() => {
                             setSelectedListSubItem(subItemIndex);
                             setDescriptionData(subItem.description);
@@ -154,7 +177,7 @@ export default function Carrer() {
                         >
                           {subItem.name}
                         </button>
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 ) : null}
@@ -164,16 +187,59 @@ export default function Carrer() {
         </ul>
 
         <section className={styles.details}>
-          <h3>
-            {descriptionData?.name}
-            {' - '}
-            <Link
-              href={carrer[currentTab].list[selectedListItem]?.url}
-              target='_blank'
-            >
-              {carrer[currentTab].list[selectedListItem]?.name}
-            </Link>
-          </h3>
+          <motion.div
+            className={styles.detailsTitle}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 1 },
+            }}
+          >
+            <h3>
+              {descriptionData?.name}
+
+              {descriptionData?.organization &&
+              carrer[currentTab].list[selectedListItem]?.url ? (
+                <Link
+                  href={carrer[currentTab].list[selectedListItem]?.url}
+                  target='_blank'
+                >
+                  {descriptionData?.organization}
+                </Link>
+              ) : null}
+            </h3>
+
+            <span>
+              {descriptionData?.startDate
+                ? format(descriptionData.startDate, 'MMM yyyy')
+                : ''}
+              {' - '}
+              {descriptionData?.isFinished
+                ? format(descriptionData.endDate, 'MMM yyyy')
+                : t.carrer.present}
+            </span>
+          </motion.div>
+
+          <ul className={styles.detailsDescription}>
+            {descriptionData?.activityDescription.map((item, index) => {
+              return (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  variants={{
+                    hidden: { opacity: 1 },
+                  }}
+                >
+                  <p>{item}</p>
+                </motion.li>
+              );
+            })}
+          </ul>
         </section>
       </section>
     </section>

@@ -12,6 +12,7 @@ export default function Contact() {
   return (
     <section className={styles.container}>
       <motion.h2
+        id='contact'
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

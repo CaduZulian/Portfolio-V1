@@ -1,6 +1,3 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import { Clock, GitBranch, GitHub, Star } from 'react-feather';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
@@ -14,37 +11,23 @@ import { githubColorLanguages } from '../../constants';
 // types
 import { IGithubRepository } from '../../models';
 
-export const RepoCards = () => {
-  const [githubReposData, setGithubReposData] = useState<IGithubRepository[]>(
-    []
+export const RepoCards = async () => {
+  const response = await fetch(
+    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
+    {
+      next: {
+        revalidate: 60 * 60, // 1 hour
+      },
+    }
   );
+  const data = await response.json();
 
-  const getGithubReposData = async () => {
-    const response = await fetch(
-      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
-      {
-        next: {
-          revalidate: 60 * 60, // 1 hour
-        },
-      }
-    );
-    const data = await response.json();
-
-    let filteredData = data
-      .filter((repo: IGithubRepository) => {
-        return (
-          repo.description !== null && repo.topics.includes('project-image')
-        );
-      })
-      .reverse()
-      .slice(0, 3);
-
-    setGithubReposData(filteredData);
-  };
-
-  useEffect(() => {
-    getGithubReposData();
-  }, []);
+  const githubReposData: IGithubRepository[] = data
+    .filter((repo: IGithubRepository) => {
+      return repo.description !== null && repo.topics.includes('project-image');
+    })
+    .reverse()
+    .slice(0, 3);
 
   return (
     <>
@@ -83,7 +66,7 @@ export const RepoCards = () => {
                   </span>
                 </div>
 
-                <Link href={repo.html_url}>
+                <Link href={repo.html_url} target='_blank'>
                   <GitHub />
                 </Link>
               </div>
