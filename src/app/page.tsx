@@ -16,6 +16,7 @@ export default function Home() {
 
       <Carrer />
 
+      {/* @ts-expect-error Server Component */}
       <Projects />
 
       <Contact />

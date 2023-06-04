@@ -11,7 +11,7 @@ import { useTranslation } from '@/app/context/TranslateContext';
 import { RepoCards } from './components/RepoCards';
 import { ButtonLink } from '../../ButtonLink';
 
-export default function Projects() {
+export default async function Projects() {
   const { t } = useTranslation();
 
   return (
@@ -27,6 +27,7 @@ export default function Projects() {
         {t.projects.title}
       </motion.h2>
 
+      {/* @ts-expect-error Server Component */}
       <RepoCards />
 
       <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
