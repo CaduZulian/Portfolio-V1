@@ -37,6 +37,17 @@ export const translations = {
     },
     contact: {
       title: 'Entre em contato',
+      form: {
+        namePlaceholder: 'Nome',
+        nameRequiredMessage: 'Nome é obrigatório',
+        emailPlaceholder: 'E-mail',
+        emailRequiredMessage: 'E-mail é obrigatório',
+        subjectPlaceholder: 'Assunto',
+        subjectRequiredMessage: 'Assunto é obrigatório',
+        messagePlaceholder: 'Mensagem',
+        messageRequiredMessage: 'Mensagem é obrigatória',
+        sendButton: 'Enviar agora',
+      },
     },
   },
   en: {
@@ -77,6 +88,17 @@ export const translations = {
     },
     contact: {
       title: 'Get in touch',
+      form: {
+        namePlaceholder: 'Name',
+        nameRequiredMessage: 'Name is required',
+        emailPlaceholder: 'Email',
+        emailRequiredMessage: 'Email is required',
+        subjectPlaceholder: 'Subject',
+        subjectRequiredMessage: 'Subject is required',
+        messagePlaceholder: 'Message',
+        messageRequiredMessage: 'Message is required',
+        sendButton: 'Submit now',
+      },
     },
   },
 };

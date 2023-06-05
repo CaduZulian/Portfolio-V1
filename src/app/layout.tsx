@@ -1,3 +1,5 @@
+import "react-toastify/dist/ReactToastify.css";
+
 // context
 import { AppContextProvider } from '@/app/context/AppContext';
 import { TranslateContextProvider } from './context/TranslateContext';

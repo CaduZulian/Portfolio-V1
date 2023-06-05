@@ -12,6 +12,7 @@ export default function About() {
 
   return (
     <section className={styles.container} id='about'>
+      
       <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

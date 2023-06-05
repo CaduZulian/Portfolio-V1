@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 
 import { languages, translations } from '@/app/constants';
 
@@ -12,7 +12,9 @@ const TranslateContext = createContext({} as TranslateContextProps);
 function TranslateContextProvider({ children }: any) {
   const [language, setLanguage] = useState(languages[0]);
 
-  const t = translations[language.name];
+  const t = useMemo(() => {
+    return translations[language.name];
+  }, [language]);
 
   return (
     <TranslateContext.Provider

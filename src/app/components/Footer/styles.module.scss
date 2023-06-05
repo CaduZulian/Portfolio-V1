@@ -30,7 +30,8 @@
       }
     }
 
-    a:hover {
+    a:hover,
+    a:focus-visible {
       svg {
         color: var(--green-500);
       }

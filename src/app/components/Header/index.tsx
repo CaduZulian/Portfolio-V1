@@ -66,7 +66,7 @@ export default function Header() {
 
           <motion.button
             className={styles.changeLang}
-            onClick={changeLanguage}
+            onClick={() => changeLanguage()}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}

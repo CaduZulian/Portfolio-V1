@@ -3,17 +3,17 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+import Profile from '../../../../../public/images/profile.jpg';
+
 import styles from './styles.module.scss';
 
 // context
-import { useAppContext } from '@/app/context/AppContext';
 import { useTranslation } from '@/app/context/TranslateContext';
 
 // components
 import { ButtonLink } from '../../ButtonLink';
 
 export default function Introduction() {
-  const { githubUserData } = useAppContext();
   const { t } = useTranslation();
 
   return (
@@ -79,7 +79,7 @@ export default function Introduction() {
         }}
       >
         <Image
-          src={githubUserData.avatar_url}
+          src={Profile}
           width={600}
           height={600}
           alt={t.introduction.userImageAlt}

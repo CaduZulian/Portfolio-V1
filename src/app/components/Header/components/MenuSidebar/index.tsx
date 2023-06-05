@@ -1,8 +1,8 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 import styles from './styles.module.scss';
 
@@ -29,7 +29,8 @@ export default function MenuSidebar({
     <aside className={styles.menu} style={menuIsOpen ? { right: 0 } : {}}>
       <div className={styles.row}>
         <motion.button
-          onClick={changeLanguage}
+          tabIndex={menuIsOpen ? 0 : -1}
+          onClick={() => changeLanguage()}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -39,6 +40,7 @@ export default function MenuSidebar({
         </motion.button>
 
         <button
+          tabIndex={menuIsOpen ? 0 : -1}
           className={styles.onCloseButton}
           onClick={() => setMenuIsOpen(false)}
         >
@@ -49,6 +51,7 @@ export default function MenuSidebar({
       <div className={styles.buttonsList}>
         {menuItems.map((item, index) => (
           <MotionLink
+            tabIndex={menuIsOpen ? 0 : -1}
             href={`#${item}`}
             key={item}
             onClick={() => setMenuIsOpen(false)}

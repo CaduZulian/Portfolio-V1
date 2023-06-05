@@ -5,7 +5,7 @@
   padding: 1.5rem 5rem;
   position: fixed;
 
-  z-index: 1;
+  z-index: 2;
 
   width: 100vw;
   height: fit-content;
@@ -20,6 +20,15 @@
     font-weight: 700;
     font-style: normal;
     font-weight: 700;
+
+    a {
+      transition: all 0.2s ease-in;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--green-500);
+      }
+    }
   }
 
   .buttonsGroup {
@@ -42,7 +51,8 @@
       transition: all 0.2s ease-in;
     }
 
-    a:hover {
+    a:hover,
+    a:focus-visible {
       color: var(--green-500);
     }
   }
@@ -60,11 +70,20 @@
 .changeLang {
   border-radius: 50%;
 
+  width: 2rem;
+  height: 2rem;
+
+  transition: all 0.2s ease-in;
+
   img {
     width: 2rem;
     height: 2rem;
 
     border-radius: 50%;
+  }
+
+  &:focus-visible {
+    box-shadow: 0px 0px 0.25rem 2px var(--green-500);
   }
 }
 

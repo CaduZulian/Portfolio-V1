@@ -1,4 +1,7 @@
+'use client';
+
 import { Clock, GitBranch, GitHub, Star } from 'react-feather';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import Image from 'next/image';
@@ -11,23 +14,37 @@ import { githubColorLanguages } from '../../constants';
 // types
 import { IGithubRepository } from '../../models';
 
-export const RepoCards = async () => {
-  const response = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
-    {
-      next: {
-        revalidate: 60 * 60, // 1 hour
-      },
-    }
+export const RepoCards = () => {
+  const [githubReposData, setGithubReposData] = useState<IGithubRepository[]>(
+    []
   );
-  const data = await response.json();
 
-  const githubReposData: IGithubRepository[] = data
-    .filter((repo: IGithubRepository) => {
-      return repo.description !== null && repo.topics.includes('project-image');
-    })
-    .reverse()
-    .slice(0, 3);
+  const getGithubRepos = async () => {
+    const response = await fetch(
+      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
+      {
+        next: {
+          revalidate: 60 * 60, // 1 hour
+        },
+      }
+    );
+    const data = await response.json();
+
+    const githubReposData: IGithubRepository[] = data
+      .filter((repo: IGithubRepository) => {
+        return (
+          repo.description !== null && repo.topics.includes('project-image')
+        );
+      })
+      .reverse()
+      .slice(0, 3);
+
+    setGithubReposData(githubReposData);
+  };
+
+  useEffect(() => {
+    getGithubRepos();
+  }, []);
 
   return (
     <>
@@ -36,8 +53,12 @@ export const RepoCards = async () => {
           <motion.section
             key={repo.name}
             className={styles.repoCard}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{
+              opacity: 0,
+              x: index % 2 === 0 ? -100 : 100,
+              width: `calc(100% - 100px)`,
+            }}
+            whileInView={{ opacity: 1, x: 0, width: `100%` }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             variants={{

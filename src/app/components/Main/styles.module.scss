@@ -38,7 +38,8 @@
     }
   }
 
-  a:hover {
+  a:hover,
+  a:focus-visible {
     svg {
       color: var(--green-500);
     }
@@ -69,7 +70,8 @@
     transition: all 0.2s ease-in;
   }
 
-  a:hover {
+  a:hover,
+  a:focus-visible {
     color: var(--green-500);
   }
 }
