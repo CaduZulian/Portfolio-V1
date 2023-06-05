@@ -56,11 +56,31 @@ export default function Header() {
           window.history.pushState(null, '', href ?? '');
         }
       });
+
+      link.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+
+        const href = link.getAttribute('href');
+        const target = document.querySelector(href ?? '');
+
+        if (target) {
+          const targetScroll =
+            target.getBoundingClientRect().top + window.scrollY;
+
+          window.scrollTo({
+            top: targetScroll - 100,
+            behavior: 'smooth',
+          });
+
+          window.history.pushState(null, '', href ?? '');
+        }
+      });
     });
 
     return () => {
       links.forEach((link) => {
         link.removeEventListener('click', () => {});
+        link.removeEventListener('touchstart', () => {});
       });
     };
   }, []);
