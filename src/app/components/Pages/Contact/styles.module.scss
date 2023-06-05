@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  width: 80%;
+
+  gap: 1.5rem;
+
+  h2 {
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 150%;
+
+    text-align: center;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    gap: 1rem;
+
+    .row {
+      display: flex;
+
+      width: 100%;
+
+      gap: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    .form {
+      .row {
+        flex-direction: column;
+      }
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}

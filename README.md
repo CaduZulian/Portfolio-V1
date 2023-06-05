@@ -1,46 +1,101 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with
-[`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio-V1
 
-## Getting Started
+Portfolio desenvolvido em 2023, com responsividade, internacionalização nativa e
+integração com o github, construído de forma dinâmica, para que seja possível
+reutilizá-lo sem grandes mudanças
 
-First, run the development server:
+<div align="center">
+<img src="github\project-image.png" alt="simple-auto-clicker"/><br />
+</div>
+
+> Para ver a interface no figma, [clique aqui](https://www.figma.com/file/Xr6P9nuBTebM5XwTx7ibHP/Portfolio-meu?type=design&node-id=292%3A98&t=oaY8kE4cpKYlQT0M-1)
+
+## Ferramentas utilizadas
+
+- **[NextJS](https://nextjs.org/)**
+- **[ReactJS](https://react.dev/)**
+- **[TypeScript](https://www.typescriptlang.org/)**
+- **[SASS](https://sass-lang.com/)**
+- **[Framer-motion](https://www.framer.com/motion/)**
+
+> Veja o arquivo [package.json](https://github.com/CaduZulian/Portfolio-V1/blob/main/package.json)
+
+## Variáveis de ambiente
+
+Para que seja possível rodar o projeto, é necessário inserir em um arquivo
+`.env` as variáveis de ambiente. Essas variáveis são:
+
+- `NEXT_PUBLIC_EMAIL`
+- `NEXT_PUBLIC_GITHUB_USERNAME`\*
+- `NEXT_PUBLIC_GA_TRACKING_ID`
+- `NEXT_PUBLIC_GITHUB_URL`
+- `NEXT_PUBLIC_LINKEDIN_URL`
+- `NEXT_PUBLIC_INSTAGRAM_URL`
+
+> \*Obrigatória
+
+## Rodando o projeto (desenvolvimento)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# Clone este repositório
+
+$ git clone https://github.com/CaduZulian/Portfolio-V1.git
+
+# Acesse a pasta do projeto no terminal/cmd
+
+$ cd Portfolio-V1
+
+# Instale as dependências
+
+$ yarn install
+
+# Execute a aplicação
+
+$ yarn dev
+
+# O cliente iniciará na porta: 3000 - acesse http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the
-result.
+## Rodando o projeto (produção)
 
-You can start editing the page by modifying `app/page.tsx`. The page
-auto-updates as you edit the file.
+```bash
+# Clone este repositório
 
-This project uses
-[`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to
-automatically optimize and load Inter, a custom Google Font.
+$ git clone https://github.com/CaduZulian/Portfolio-V1.git
 
-## Learn More
+# Acesse a pasta do projeto no terminal/cmd
 
-To learn more about Next.js, take a look at the following resources:
+$ cd Portfolio-V1
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Instale as dependências
 
-You can check out
-[the Next.js GitHub repository](https://github.com/vercel/next.js/) - your
-feedback and contributions are welcome!
+$ yarn install
 
-## Deploy on Vercel
+# Realize o build da aplicação
 
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
+$ yarn build
 
-Check out our
-[Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
-details.
+# Execute a aplicação
+
+$ yarn start
+
+# O cliente iniciará na porta: 3000 - acesse http://localhost:3000
+```
+
+## TODO's
+
+Para a primeira versão, ficou faltando um bloco de informações voltado as skills. 
+Uma possível atualização seria adicionar esse bloco
+
+## Desenvolvedores
+
+<table align="center">
+<tr>
+<td> 
+<div align="center">
+<img style="width: 150px; border-radius: 50%;" src="https://github.com/CaduZulian.png" alt="CaduZulian"/><br />
+<a href="https://github.com/CaduZulian">Carlos Eduardo Zulian</a> 
+</div>  
+</td>
+</tr>
+</table>

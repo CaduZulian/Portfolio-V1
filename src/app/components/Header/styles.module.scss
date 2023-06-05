@@ -1,0 +1,120 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5rem;
+  position: fixed;
+
+  z-index: 2;
+
+  width: 100vw;
+  height: fit-content;
+
+  background: var(--gray-100);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.2s ease-in;
+
+  .logo {
+    font-size: 2.25rem;
+    font-weight: 700;
+    font-style: normal;
+    font-weight: 700;
+
+    a {
+      transition: all 0.2s ease-in;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--green-500);
+      }
+    }
+  }
+
+  .buttonsGroup {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    width: fit-content;
+    height: fit-content;
+
+    a {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.125rem;
+      line-height: 150%;
+      text-decoration: none;
+
+      color: var(--white);
+
+      transition: all 0.2s ease-in;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--green-500);
+    }
+  }
+
+  .menuButton {
+    display: none;
+
+    svg {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+}
+
+.changeLang {
+  border-radius: 50%;
+
+  width: 2rem;
+  height: 2rem;
+
+  transition: all 0.2s ease-in;
+
+  img {
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
+  }
+
+  &:focus-visible {
+    box-shadow: 0px 0px 0.25rem 2px var(--green-500);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    padding: 1rem 2.5rem;
+
+    .logo {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .buttonsGroup {
+      display: none;
+    }
+
+    .menuButton {
+      display: flex;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    padding: 0.75rem 1.5rem;
+
+    .logo {
+      font-size: 1.5rem;
+    }
+  }
+}
