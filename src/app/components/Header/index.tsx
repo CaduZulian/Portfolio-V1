@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useEffect, useMemo } from 'react';
 
 import styles from './styles.module.scss';
 
@@ -32,7 +32,9 @@ export default function Header() {
 
   const menuItems = ['about', 'carrer', 'projects', 'contactMe'] as const;
 
-  const MotionLink = motion(Link);
+  const MotionLink = useMemo(() => {
+    return motion(Link);
+  }, []);
 
   useEffect(() => {
     const links = document.querySelectorAll('a[href^="#"]');
@@ -48,27 +50,13 @@ export default function Header() {
           const targetScroll =
             target.getBoundingClientRect().top + window.scrollY;
 
-          window.scrollTo({
-            top: targetScroll - 100,
-            behavior: 'smooth',
-          });
-
-          window.history.pushState(null, '', href ?? '');
-        }
-      });
-
-      link.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-
-        const href = link.getAttribute('href');
-        const target = document.querySelector(href ?? '');
-
-        if (target) {
-          const targetScroll =
-            target.getBoundingClientRect().top + window.scrollY;
+          console.log(targetScroll);
 
           window.scrollTo({
-            top: targetScroll - 100,
+            top:
+              targetScroll -
+              (document.querySelector('#header')?.clientHeight ?? 0) -
+              16,
             behavior: 'smooth',
           });
 
@@ -80,7 +68,6 @@ export default function Header() {
     return () => {
       links.forEach((link) => {
         link.removeEventListener('click', () => {});
-        link.removeEventListener('touchstart', () => {});
       });
     };
   }, []);
@@ -88,6 +75,7 @@ export default function Header() {
   return (
     <>
       <header
+        id='header'
         className={styles.container}
         style={menuIsOpen ? { filter: 'blur(0.5rem)' } : {}}
       >
@@ -97,7 +85,7 @@ export default function Header() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Link href={'/'}>{t.siteName}</Link>
+          <Link href={'#introduction'}>{t.siteName}</Link>
         </motion.h1>
 
         <div className={styles.buttonsGroup}>

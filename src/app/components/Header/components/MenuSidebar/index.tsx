@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import styles from './styles.module.scss';
 
@@ -23,7 +22,25 @@ export default function MenuSidebar({
   const { menuIsOpen, setMenuIsOpen } = useAppContext();
   const { t, language } = useTranslation();
 
-  const MotionLink = motion(Link);
+  const scrollToItem = (item: string) => {
+    const target = document.querySelector(`#${item}`);
+
+    if (target) {
+      const targetScroll = target.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top:
+          targetScroll -
+          (document.querySelector('#header')?.clientHeight ?? 0) -
+          16,
+        behavior: 'smooth',
+      });
+
+      window.history.pushState(null, '', `#${item}`);
+
+      setMenuIsOpen(false);
+    }
+  };
 
   return (
     <aside className={styles.menu} style={menuIsOpen ? { right: 0 } : {}}>
@@ -50,18 +67,16 @@ export default function MenuSidebar({
 
       <div className={styles.buttonsList}>
         {menuItems.map((item, index) => (
-          <MotionLink
+          <motion.button
             tabIndex={menuIsOpen ? 0 : -1}
-            href={`#${item}`}
             key={item}
-            onClick={() => setMenuIsOpen(false)}
+            onClick={() => scrollToItem(item)}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             transition={{ duration: 0.2, delay: index * 0.1 }}
           >
             {t.header[item]}
-          </MotionLink>
+          </motion.button>
         ))}
       </div>
     </aside>

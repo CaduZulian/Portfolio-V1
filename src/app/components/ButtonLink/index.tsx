@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -16,7 +16,9 @@ export const ButtonLink = ({
   color,
   ...rest
 }: ButtonLinkProps) => {
-  const MotionLink: any = motion(Link);
+  const MotionLink: any = useMemo(() => {
+    return motion(Link);
+  }, []);
 
   return (
     <MotionLink
