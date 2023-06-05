@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import styles from './styles.module.scss';
@@ -32,6 +33,37 @@ export default function Header() {
   const menuItems = ['about', 'carrer', 'projects', 'contactMe'] as const;
 
   const MotionLink = motion(Link);
+
+  useEffect(() => {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const href = link.getAttribute('href');
+        const target = document.querySelector(href ?? '');
+
+        if (target) {
+          const targetScroll =
+            target.getBoundingClientRect().top + window.scrollY;
+
+          window.scrollTo({
+            top: targetScroll - 100,
+            behavior: 'smooth',
+          });
+
+          window.history.pushState(null, '', href ?? '');
+        }
+      });
+    });
+
+    return () => {
+      links.forEach((link) => {
+        link.removeEventListener('click', () => {});
+      });
+    };
+  }, []);
 
   return (
     <>

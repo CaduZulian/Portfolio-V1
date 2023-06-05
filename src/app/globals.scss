@@ -24,12 +24,16 @@
   --gray-500-80: #828282cc;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--gray-100);
 
   width: 100vw;
 
-  overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;

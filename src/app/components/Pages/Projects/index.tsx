@@ -15,8 +15,9 @@ export default function Projects() {
   const { t } = useTranslation();
 
   return (
-    <section className={styles.container} id='projects'>
+    <section className={styles.container}>
       <motion.h2
+        id='projects'
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

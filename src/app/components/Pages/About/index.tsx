@@ -11,9 +11,9 @@ export default function About() {
   const { t } = useTranslation();
 
   return (
-    <section className={styles.container} id='about'>
-      
+    <section className={styles.container}>
       <motion.h2
+        id='about'
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
