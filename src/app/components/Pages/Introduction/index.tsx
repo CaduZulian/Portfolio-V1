@@ -80,8 +80,9 @@ export default function Introduction() {
       >
         <Image
           src={Profile}
-          width={600}
-          height={600}
+          width={1000}
+          height={1000}
+          quality={100}
           alt={t.introduction.userImageAlt}
         />
       </motion.div>
