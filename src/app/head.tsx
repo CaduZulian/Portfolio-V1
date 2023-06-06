@@ -21,25 +21,23 @@ export default function Head() {
         href='../../public/favicon-16x16.png'
       />
       <link rel='manifest' href='../../public/site.webmanifest' />
-      <link rel='mask-icon' href='../../public/safari-pinned-tab.svg' color='#5bbad5' />
+      <link
+        rel='mask-icon'
+        href='../../public/safari-pinned-tab.svg'
+        color='#5bbad5'
+      />
       <meta name='msapplication-TileColor' content='#da532c' />
       <meta name='theme-color' content='#ffffff' />
 
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
+      <meta property='og:site_name' content='CaduZulian | Web Developer' />
+      <meta property='og:type' content='website' />
+      <meta property='og:title' content='CaduZulian | Web Developer' />
+      <meta
+        property='og:description'
+        content='Carlos Eduardo Zulian is a Web Developer  who builds accessible, inclusive products and digital experiences for the web.'
       />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
-          `,
-        }}
-      />
+      <meta property='og:url' content='https://caduzulian.dev/' />
+      <meta property='og:image' content='../../public/images/og.png' />
     </>
   );
 }
