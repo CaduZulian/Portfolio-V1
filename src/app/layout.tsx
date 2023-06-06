@@ -1,5 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 
+import GoogleAnalytics from './googleAnalitics';
+
 // context
 import { AppContextProvider } from '@/app/context/AppContext';
 import { TranslateContextProvider } from './context/TranslateContext';
@@ -25,6 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID ?? ''} />
       <body>
         <TranslateContextProvider>
           <AppContextProvider>

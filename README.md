@@ -27,12 +27,34 @@ Para que seja possível rodar o projeto, é necessário inserir em um arquivo
 
 - `NEXT_PUBLIC_EMAIL`
 - `NEXT_PUBLIC_GITHUB_USERNAME`\*
-- `NEXT_PUBLIC_GA_TRACKING_ID`
+- `GA_TRACKING_ID`
+- `NEXT_PUBLIC_EMAILJS_SERVICE_ID`
+- `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`
+- `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
+- `NEXT_PUBLIC_CV_URL`
 - `NEXT_PUBLIC_GITHUB_URL`
 - `NEXT_PUBLIC_LINKEDIN_URL`
 - `NEXT_PUBLIC_INSTAGRAM_URL`
 
 > \*Obrigatória
+
+## Internacionalização
+
+A parte de internacionalização está separada em 3 partes dentro do projeto:
+
+- [translations.ts](src\app\constants\translations.ts) - Onde devem ser armazenados todos os textos a serem exibidos dependendo da lingua selecionada
+- [languages.ts](src\app\constants\languages.ts) - Onde devem ser adicionadas as linguas suportadas, juntamente com a importação do seu respectivo icone
+- [TranslateContext](src\app\context\TranslateContext) - Onde é realizada a seleção dos textos para a lingua selecionada e o compartilhamento para todo o projeto
+
+A parte de Carreira também possui internacionalização, mas fica armazenada em outro local e é explicado abaixo
+
+## Carreira
+
+A parte de carreira está armazenada em um arquivo [carrer.ts](src\app\constants\carrer.ts) na pasta de constantes. 
+
+Essa parte também possui internacionalização, funcionando de forma muito semelhante ao resto do sistema nesse quesito
+
+Para realizar qualquer atualização nessa aba, basta atualizar o JSON, alterando em todas as linguas disponíveis
 
 ## Rodando o projeto (desenvolvimento)
 
