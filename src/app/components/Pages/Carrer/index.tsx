@@ -31,7 +31,8 @@ export default function Carrer() {
   const [descriptionData, setDescriptionData] = useState<
     IDescription | undefined
   >(
-    carrer[0].list[0].subItems?.[0].description ?? carrer[0].list[0].description
+    carrer[0].list[0].subItems?.[0].description ??
+      carrer[0].list[0].description,
   );
 
   useEffect(() => {
@@ -43,7 +44,7 @@ export default function Carrer() {
         widthArray.push(
           `${
             (document.getElementById(item.optionName)?.offsetWidth ?? 0) / 16
-          }rem`
+          }rem`,
         );
 
         if (widthArray.length > leftArray.length) {
@@ -65,7 +66,7 @@ export default function Carrer() {
             width: widthArray[i],
             left: leftArray[i],
           };
-        })
+        }),
       );
     }
   }, [buttonsContainerRef, carrer]);
@@ -75,7 +76,7 @@ export default function Carrer() {
     setSelectedListSubItem(0);
     setDescriptionData(
       carrer[currentTab].list[0].subItems?.[0].description ??
-        carrer[currentTab].list[0].description
+        carrer[currentTab].list[0].description,
     );
   }, [currentTab, setSelectedListItem, carrer]);
 
