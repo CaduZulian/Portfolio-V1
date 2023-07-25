@@ -16,7 +16,7 @@ import { IGithubRepository } from '../../models';
 
 export const RepoCards = () => {
   const [githubReposData, setGithubReposData] = useState<IGithubRepository[]>(
-    []
+    [],
   );
 
   const getGithubRepos = async () => {
@@ -26,7 +26,7 @@ export const RepoCards = () => {
         next: {
           revalidate: 60 * 60, // 1 hour
         },
-      }
+      },
     );
     const data = await response.json();
 
