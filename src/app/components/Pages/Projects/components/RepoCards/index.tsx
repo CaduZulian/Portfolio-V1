@@ -21,7 +21,7 @@ export const RepoCards = () => {
 
   const getGithubRepos = async () => {
     const response = await fetch(
-      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
+      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=updated`,
       {
         next: {
           revalidate: 60 * 60, // 1 hour
@@ -36,8 +36,7 @@ export const RepoCards = () => {
           repo.description !== null && repo.topics.includes('project-image')
         );
       })
-      .reverse()
-      .slice(0, 3);
+      .slice(0, 4);
 
     setGithubReposData(githubReposData);
   };

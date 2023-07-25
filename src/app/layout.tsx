@@ -177,7 +177,7 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
       alt: 'CaduZulian | Web Developer',
-    }
+    },
   },
 };
 
@@ -187,7 +187,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang='pt'>
       <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID ?? ''} />
       <body>
         <TranslateContextProvider>
