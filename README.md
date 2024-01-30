@@ -5,7 +5,7 @@ integração com o github, construído de forma dinâmica, para que seja possív
 reutilizá-lo sem grandes mudanças
 
 <div align="center">
-<img src="github\project-image.png" alt="simple-auto-clicker"/><br />
+<img src=".github\project-image.png" alt="Portfolio-V1"/><br />
 </div>
 
 > Para ver a interface no figma, [clique aqui](https://www.figma.com/file/Xr6P9nuBTebM5XwTx7ibHP/Portfolio-meu?type=design&node-id=292%3A98&t=oaY8kE4cpKYlQT0M-1)
