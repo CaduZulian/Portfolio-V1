@@ -2,6 +2,7 @@ export interface IGithubRepository {
   id: number;
   name: string;
   description: string | null;
+  default_branch: string;
   html_url: string;
   homepage: string;
   language: string;
