@@ -66,7 +66,7 @@ export const RepoCards = () => {
           >
             <Image
               className={styles.repoImage}
-              src={`https://raw.githubusercontent.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/${repo.name}/main/.github/project-image.png`}
+              src={`https://raw.githubusercontent.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/${repo.name}/${repo.default_branch}/.github/project-image.png`}
               width={1000}
               height={1000}
               alt={repo.name}
