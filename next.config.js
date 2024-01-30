@@ -12,7 +12,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
         port: '',
-        pathname: '**',
+        pathname: '**/**/main/.github/project-image.png',
       },
     ],
   },
