@@ -1,5 +1,7 @@
+import { LanguagesEnum } from "./languages";
+
 export const translations = {
-  pt: {
+  [LanguagesEnum.PT_BR]: {
     siteName: 'CaduZulian.dev',
     header: {
       about: 'Sobre mim',
@@ -50,7 +52,7 @@ export const translations = {
       },
     },
   },
-  en: {
+  [LanguagesEnum.EN_US]: {
     siteName: 'CaduZulian.dev',
     header: {
       about: 'About me',

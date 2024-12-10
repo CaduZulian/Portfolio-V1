@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import 'react-toastify/dist/ReactToastify.css';
 
 import GoogleAnalytics from './googleAnalitics';
@@ -187,8 +188,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='pt'>
-      <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID ?? ''} />
+    <html>
+      <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID} />
+
+      <SpeedInsights />
+
       <body>
         <TranslateContextProvider>
           <AppContextProvider>
