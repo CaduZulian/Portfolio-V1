@@ -46,13 +46,21 @@ export const carrerWithTranslations: ICarrer = {
           url: 'https://aiko.digital/',
           subItems: [
             {
-              name: 'Desenvolvedor Front-end - Junior',
+              name: 'Desenvolvedor Front-end - Júnior',
               description: {
-                name: 'Desenvolvedor Front-end - Junior na ',
+                name: 'Desenvolvedor Front-end - Júnior na ',
                 organization: 'AIKO',
                 startDate: new Date('2024-12-09'),
                 isFinished: false,
-                activityDescription: [''],
+                activityDescription: [
+                  'Desenvolvimento de novas telas',
+                  'Criação de interfaces seguindo a identidade visual da empresa',
+                  'Gerenciamento de micro-frontend com múltiplas linguagens',
+                  'Criação de mapas interativos e personalizados',
+                  'Internacionalização do sistema',
+                  'Suporte técnico e correções de bugs',
+                  'Atuações pontuais no backend para correções e novas funcionalidades ',
+                ],
               },
             },
           ],
@@ -62,9 +70,9 @@ export const carrerWithTranslations: ICarrer = {
           url: 'https://www.kor.solutions/',
           subItems: [
             {
-              name: 'Desenvolvedor Front-end - Junior',
+              name: 'Desenvolvedor Front-end - Júnior',
               description: {
-                name: 'Desenvolvedor Front-end - Junior na ',
+                name: 'Desenvolvedor Front-end - Júnior na ',
                 organization: 'KOR Solutions',
                 startDate: new Date('2023-01-02'),
                 endDate: new Date('2024-12-06'),
@@ -156,7 +164,15 @@ export const carrerWithTranslations: ICarrer = {
                 organization: 'AIKO',
                 startDate: new Date('2024-12-09'),
                 isFinished: false,
-                activityDescription: [''],
+                activityDescription: [
+                  'Development of new screens',
+                  "Creation of interfaces following the company's visual identity",
+                  'Technical support and bug fixes',
+                  'Occasional backend work for fixes and new features',
+                  'Management of micro-frontends with multiple languages',
+                  'Creation of interactive and customized maps',
+                  'System internationalization',
+                ],
               },
             },
           ],

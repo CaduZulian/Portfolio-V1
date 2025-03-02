@@ -1,4 +1,4 @@
-import { LanguagesEnum } from "./languages";
+import { LanguagesEnum } from './languages';
 
 export const translations = {
   [LanguagesEnum.PT_BR]: {

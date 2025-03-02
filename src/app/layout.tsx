@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import 'react-toastify/dist/ReactToastify.css';
 
 import GoogleAnalytics from './googleAnalitics';

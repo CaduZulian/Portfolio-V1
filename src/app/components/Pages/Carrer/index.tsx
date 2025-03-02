@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { format, set } from 'date-fns';
+import { format } from 'date-fns';
 import Link from 'next/link';
 
 import styles from './styles.module.scss';
