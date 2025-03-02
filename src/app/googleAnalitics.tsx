@@ -1,8 +1,8 @@
 'use client';
 import Script from 'next/script';
 
-const GoogleAnalytics = ({ GA_TRACKING_ID }: { GA_TRACKING_ID: string }) => {
-  return (
+const GoogleAnalytics = ({ GA_TRACKING_ID }: { GA_TRACKING_ID?: string }) => {
+  return GA_TRACKING_ID ? (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -18,7 +18,7 @@ const GoogleAnalytics = ({ GA_TRACKING_ID }: { GA_TRACKING_ID: string }) => {
         `}
       </Script>
     </>
-  );
+  ) : null;
 };
 
 export default GoogleAnalytics;
