@@ -50,8 +50,6 @@ export default function Header() {
           const targetScroll =
             target.getBoundingClientRect().top + window.scrollY;
 
-          console.log(targetScroll);
-
           window.scrollTo({
             top:
               targetScroll -

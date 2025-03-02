@@ -43,7 +43,7 @@ Para que seja possível rodar o projeto, é necessário inserir em um arquivo
 A parte de internacionalização está separada em 3 partes dentro do projeto:
 
 - [translations.ts](src\app\constants\translations.ts) - Onde devem ser armazenados todos os textos a serem exibidos dependendo da lingua selecionada
-- [languages.ts](src\app\constants\languages.ts) - Onde devem ser adicionadas as linguas suportadas, juntamente com a importação do seu respectivo icone
+- [languages.ts](src\app\constants\languages.ts) - Onde devem ser adicionadas as linguas suportadas, juntamente com a importação do seu respectivo ícone
 - [TranslateContext](src\app\context\TranslateContext) - Onde é realizada a seleção dos textos para a lingua selecionada e o compartilhamento para todo o projeto
 
 A parte de Carreira também possui internacionalização, mas fica armazenada em outro local e é explicado abaixo

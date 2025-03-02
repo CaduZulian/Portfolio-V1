@@ -2,12 +2,23 @@
 import BrazilianIcon from '../../../public/icons/brazilian-icon.svg';
 import UnitedStatesIcon from '../../../public/icons/united-states-icon.svg';
 
+export enum LanguagesEnum {
+  PT_BR = 'pt-BR',
+  EN_US = 'en-US',
+}
+
 export interface ILanguages {
-  name: 'pt' | 'en';
+  name: LanguagesEnum;
   icon: string;
 }
 
 export const languages: ILanguages[] = [
-  { name: 'pt', icon: BrazilianIcon },
-  { name: 'en', icon: UnitedStatesIcon },
+  {
+    name: LanguagesEnum.PT_BR,
+    icon: BrazilianIcon,
+  },
+  {
+    name: LanguagesEnum.EN_US,
+    icon: UnitedStatesIcon,
+  },
 ];

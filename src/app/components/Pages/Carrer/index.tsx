@@ -142,7 +142,13 @@ export default function Carrer() {
                   title={item.name}
                   onClick={() => {
                     setSelectedListItem(index);
-                    !item?.subItems && setDescriptionData(item.description);
+
+                    if (!item?.subItems) {
+                      setDescriptionData(item.description);
+                    } else {
+                      setSelectedListSubItem(0);
+                      setDescriptionData(item.subItems[0].description);
+                    }
                   }}
                 >
                   {item.name}

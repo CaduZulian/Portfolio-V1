@@ -1,3 +1,5 @@
+import { LanguagesEnum } from './languages';
+
 export type IDescription =
   | {
       name: string;
@@ -27,38 +29,63 @@ type IList = {
   subItems?: ISubItems[];
 };
 
-export interface ICarrer {
-  pt: {
+export type ICarrer = {
+  [K in LanguagesEnum]: {
     optionName: string;
     list: IList[];
   }[];
-  en: {
-    optionName: string;
-    list: IList[];
-  }[];
-}
+};
 
 export const carrerWithTranslations: ICarrer = {
-  pt: [
+  [LanguagesEnum.PT_BR]: [
     {
       optionName: 'Experiência',
       list: [
+        {
+          name: 'AIKO',
+          url: 'https://aiko.digital/',
+          subItems: [
+            {
+              name: 'Desenvolvedor Front-end - Júnior',
+              description: {
+                name: 'Desenvolvedor Front-end - Júnior na ',
+                organization: 'AIKO',
+                startDate: new Date('2024-12-09'),
+                isFinished: false,
+                activityDescription: [
+                  'Desenvolvimento de novas telas',
+                  'Criação de interfaces seguindo a identidade visual da empresa',
+                  'Gerenciamento de micro-frontend com múltiplas linguagens',
+                  'Criação de mapas interativos e personalizados',
+                  'Internacionalização do sistema',
+                  'Suporte técnico e correções de bugs',
+                  'Atuações pontuais no backend para correções e novas funcionalidades ',
+                ],
+              },
+            },
+          ],
+        },
         {
           name: 'KOR Solutions',
           url: 'https://www.kor.solutions/',
           subItems: [
             {
-              name: 'Desenvolvedor Front-end - Junior',
+              name: 'Desenvolvedor Front-end - Júnior',
               description: {
-                name: 'Desenvolvedor Front-end - Junior na ',
+                name: 'Desenvolvedor Front-end - Júnior na ',
                 organization: 'KOR Solutions',
                 startDate: new Date('2023-01-02'),
-                isFinished: false,
+                endDate: new Date('2024-12-06'),
+                isFinished: true,
                 activityDescription: [
-                  'Atualmente estou trabalhando como Desenvolvedor Front-end JR na KOR Solutions, onde sou responsável por desenvolver o frontend dos produtos da empresa.',
-                  'Desenvolvo utilizando ReactJS, Vite, Typescript, Styled Components, Jest, entre outras tecnologias.',
-                  'Também já trabalhei com ferramentas como Redux, socket.io, AdonisJS e AWS lambda.',
-                  'Utilizo a metodologia ágil Scrum no meu dia a dia.',
+                  'Criação de biblioteca para design system',
+                  'Componentização do sistema utilizando micro front-ends',
+                  'Desenvolvimento de formulários parametrizáveis com persistência de dados e validações complexas',
+                  'Criação de designs para o portal seguindo o design system',
+                  'Criação de novas telas realizando consultas no firebase',
+                  'Suporte técnico e correções de bugs ',
+                  'Desenvolvimento de scripts para manipulação de dados',
+                  'Desenvolvimento de funções lambda',
                 ],
               },
             },
@@ -71,8 +98,12 @@ export const carrerWithTranslations: ICarrer = {
                 endDate: new Date('2022-12-31'),
                 isFinished: true,
                 activityDescription: [
-                  'Trabalhei como estagiário de desenvolvimento front-end na KOR Solutions, onde foi minha primeira experiência profissional.',
-                  'Aprendi muito sobre desenvolvimento web, tanto na parte de front-end como back-end, e também sobre a metodologia ágil Scrum.',
+                  'Criação de novas telas no portal de admin',
+                  'Criação de um novo portal do cliente',
+                  'Criação de um chat utilizando websocket',
+                  'Correções de bugs visuais e lógicos ',
+                  'Ajustes de requests em GraphQL e Redux',
+                  'Manutenção de endpoints em ADONIS',
                 ],
               },
             },
@@ -118,10 +149,34 @@ export const carrerWithTranslations: ICarrer = {
       ],
     },
   ],
-  en: [
+  [LanguagesEnum.EN_US]: [
     {
       optionName: 'Experience',
       list: [
+        {
+          name: 'AIKO',
+          url: 'https://aiko.digital/',
+          subItems: [
+            {
+              name: 'Front-end Developer - Junior',
+              description: {
+                name: 'Front-end Developer - Junior at ',
+                organization: 'AIKO',
+                startDate: new Date('2024-12-09'),
+                isFinished: false,
+                activityDescription: [
+                  'Development of new screens',
+                  "Creation of interfaces following the company's visual identity",
+                  'Technical support and bug fixes',
+                  'Occasional backend work for fixes and new features',
+                  'Management of micro-frontends with multiple languages',
+                  'Creation of interactive and customized maps',
+                  'System internationalization',
+                ],
+              },
+            },
+          ],
+        },
         {
           name: 'KOR Solutions',
           url: 'https://www.kor.solutions/',
@@ -132,12 +187,17 @@ export const carrerWithTranslations: ICarrer = {
                 name: 'Front-end Developer - Junior at ',
                 organization: 'KOR Solutions',
                 startDate: new Date('2023-01-02'),
-                isFinished: false,
+                endDate: new Date('2024-12-06'),
+                isFinished: true,
                 activityDescription: [
-                  "I am currently working as a Front-end Developer JR at KOR Solutions, where I am responsible for developing the frontend of the company's products.",
-                  'I develop using ReactJS, Vite, Typescript, Styled Components, Jest, among other technologies.',
-                  'I have also worked with tools such as Redux, socket.io, AdonisJS and AWS lambda.',
-                  'I use the agile Scrum methodology in my daily life.',
+                  'Creation of a design system library',
+                  'Componentization of the system using micro front-ends',
+                  'Development of parameterizable forms with data persistence and complex validations',
+                  'Creation of designs for the portal following the design system',
+                  'Development of new screens by querying Firebase',
+                  'Technical support and bug fixes',
+                  'Development of scripts for data manipulation',
+                  'Development of Lambda functions',
                 ],
               },
             },
@@ -150,8 +210,12 @@ export const carrerWithTranslations: ICarrer = {
                 endDate: new Date('2022-12-31'),
                 isFinished: true,
                 activityDescription: [
-                  'I worked as a front-end development intern at KOR Solutions, where it was my first professional experience.',
-                  'I learned a lot about web development, both on the front-end and back-end, and also about the agile Scrum methodology.',
+                  'Creation of new screens on the admin portal',
+                  'Development of a new client portal',
+                  'Creation of a chat using WebSocket',
+                  'Visual and logical bug fixes',
+                  'Adjustments of requests in GraphQL and Redux',
+                  'Maintenance of endpoints in ADONIS',
                 ],
               },
             },
