@@ -17,6 +17,9 @@ import Footer from '@/app/components/Footer';
 // styles
 import './globals.scss';
 
+// utils
+import { getSystemLanguage } from './utils';
+
 export const metadata: Metadata = {
   title: 'CaduZulian | Web Developer',
   description:
@@ -190,7 +193,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html lang={getSystemLanguage().name}>
       <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID} />
 
       <SpeedInsights />
