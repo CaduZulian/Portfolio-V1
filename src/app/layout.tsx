@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 import 'react-toastify/dist/ReactToastify.css';
 
 import GoogleAnalytics from './googleAnalitics';
@@ -156,6 +157,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'CaduZulian | Web Developer',
     title: 'CaduZulian | Web Developer',
+    url: process.env.NEXT_PUBLIC_SITE_URL,
     description:
       'Carlos Eduardo Zulian is a Web Developer  who builds accessible, inclusive products and digital experiences for the web.',
     images: [
@@ -192,6 +194,7 @@ export default function RootLayout({
       <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID} />
 
       <SpeedInsights />
+      <Analytics />
 
       <body>
         <TranslateContextProvider>
