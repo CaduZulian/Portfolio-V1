@@ -30,7 +30,13 @@ export default function Header() {
     setLanguage(languages[nextIndex]);
   };
 
-  const menuItems = ['about', 'carrer', 'projects', 'contactMe'] as const;
+  const menuItems = [
+    'about',
+    'career',
+    'skills',
+    'projects',
+    'contactMe',
+  ] as const;
 
   const MotionLink = useMemo(() => {
     return motion(Link);
