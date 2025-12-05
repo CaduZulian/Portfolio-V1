@@ -1,3 +1,4 @@
 export * from './translations';
 export * from './languages';
-export * from './carrer';
+export * from './career';
+export * from './skills';

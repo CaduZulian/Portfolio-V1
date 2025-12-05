@@ -29,14 +29,14 @@ type IList = {
   subItems?: ISubItems[];
 };
 
-export type ICarrer = {
+export type ICareer = {
   [K in LanguagesEnum]: {
     optionName: string;
     list: IList[];
   }[];
 };
 
-export const carrerWithTranslations: ICarrer = {
+export const careerWithTranslations: ICareer = {
   [LanguagesEnum.PT_BR]: [
     {
       optionName: 'Experiência',
@@ -46,20 +46,22 @@ export const carrerWithTranslations: ICarrer = {
           url: 'https://aiko.digital/',
           subItems: [
             {
-              name: 'Desenvolvedor Front-end - Júnior',
+              name: 'Analista de Desenvolvimento de Sistemas I',
               description: {
-                name: 'Desenvolvedor Front-end - Júnior na ',
+                name: 'Analista de Desenvolvimento de Sistemas I na ',
                 organization: 'AIKO',
                 startDate: new Date('2024-12-09'),
                 isFinished: false,
                 activityDescription: [
-                  'Desenvolvimento de novas telas',
-                  'Criação de interfaces seguindo a identidade visual da empresa',
-                  'Gerenciamento de micro-frontend com múltiplas linguagens',
-                  'Criação de mapas interativos e personalizados',
-                  'Internacionalização do sistema',
-                  'Suporte técnico e correções de bugs',
-                  'Atuações pontuais no backend para correções e novas funcionalidades ',
+                  'Desenvolvimento de novas telas e componentes.',
+                  'Criação de interfaces seguindo a identidade visual da empresa.',
+                  'Gerenciamento de micro-frontends em múltiplas linguagens.',
+                  'Criação de mapas complexos, flexíveis e robustos.',
+                  'Otimizações de performance',
+                  'Implementação de internacionalização do sistema.',
+                  'Desenvolvimento de painéis de monitoramento personalizáveis.',
+                  'Suporte técnico e correção de bugs.',
+                  'Atuações pontuais no backend para ajustes e novas funcionalidades.',
                 ],
               },
             },
@@ -165,13 +167,15 @@ export const carrerWithTranslations: ICarrer = {
                 startDate: new Date('2024-12-09'),
                 isFinished: false,
                 activityDescription: [
-                  'Development of new screens',
-                  "Creation of interfaces following the company's visual identity",
-                  'Technical support and bug fixes',
-                  'Occasional backend work for fixes and new features',
-                  'Management of micro-frontends with multiple languages',
-                  'Creation of interactive and customized maps',
-                  'System internationalization',
+                  'Development of new screens and components.',
+                  "Creation of interfaces following the company's visual identity.",
+                  'Management of micro-frontends in multiple languages.',
+                  'Development of complex, flexible, and robust maps.',
+                  'Performance optimizations.',
+                  'Implementation of system internationalization.',
+                  'Development of customizable monitoring dashboards.',
+                  'Technical support and bug fixing.',
+                  'Occasional backend contributions for adjustments and new features.',
                 ],
               },
             },

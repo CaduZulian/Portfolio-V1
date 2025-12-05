@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 import styles from './styles.module.scss';
 
-import { IDescription, carrerWithTranslations } from '@/app/constants';
+import { IDescription, careerWithTranslations } from '@/app/constants';
 
 // context
 import { useTranslation } from '@/app/context/TranslateContext';
@@ -17,8 +17,8 @@ export default function Carrer() {
 
   const { t, language } = useTranslation();
 
-  const carrer = useMemo(() => {
-    return carrerWithTranslations[language.name];
+  const career = useMemo(() => {
+    return careerWithTranslations[language.name];
   }, [language]);
 
   const [currentTab, setCurrentTab] = useState(0);
@@ -31,8 +31,8 @@ export default function Carrer() {
   const [descriptionData, setDescriptionData] = useState<
     IDescription | undefined
   >(
-    carrer[0].list[0].subItems?.[0].description ??
-      carrer[0].list[0].description,
+    career[0].list[0].subItems?.[0].description ??
+      career[0].list[0].description,
   );
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function Carrer() {
       let leftArray: string[] = ['0rem'];
       let widthArray: string[] = [];
 
-      carrer.forEach((item) => {
+      career.forEach((item) => {
         widthArray.push(
           `${
             (document.getElementById(item.optionName)?.offsetWidth ?? 0) / 16
@@ -61,7 +61,7 @@ export default function Carrer() {
       });
 
       setButtonStyles(
-        carrer.map((_, i) => {
+        career.map((_, i) => {
           return {
             width: widthArray[i],
             left: leftArray[i],
@@ -69,21 +69,21 @@ export default function Carrer() {
         }),
       );
     }
-  }, [buttonsContainerRef, carrer]);
+  }, [buttonsContainerRef, career]);
 
   useEffect(() => {
     setSelectedListItem(0);
     setSelectedListSubItem(0);
     setDescriptionData(
-      carrer[currentTab].list[0].subItems?.[0].description ??
-        carrer[currentTab].list[0].description,
+      career[currentTab].list[0].subItems?.[0].description ??
+        career[currentTab].list[0].description,
     );
-  }, [currentTab, setSelectedListItem, carrer]);
+  }, [currentTab, setSelectedListItem, career]);
 
   return (
     <section className={styles.container}>
       <motion.h2
-        id='carrer'
+        id='career'
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -91,7 +91,7 @@ export default function Carrer() {
           hidden: { opacity: 1 },
         }}
       >
-        {t.carrer.title}
+        {t.career.title}
       </motion.h2>
 
       <section ref={buttonsContainerRef} className={styles.buttonsGroup}>
@@ -100,7 +100,7 @@ export default function Carrer() {
           style={buttonStyles[currentTab]}
         />
 
-        {carrer.map((item, index) => {
+        {career.map((item, index) => {
           return (
             <motion.button
               className={styles.buttonItem}
@@ -123,7 +123,7 @@ export default function Carrer() {
 
       <section className={styles.main}>
         <ul className={styles.list}>
-          {carrer[currentTab].list.map((item, index) => {
+          {career[currentTab].list.map((item, index) => {
             return (
               <motion.li
                 key={item.name}
@@ -208,9 +208,9 @@ export default function Carrer() {
               {descriptionData?.name}
 
               {descriptionData?.organization &&
-              carrer[currentTab].list[selectedListItem]?.url ? (
+              career[currentTab].list[selectedListItem]?.url ? (
                 <Link
-                  href={carrer[currentTab].list[selectedListItem]?.url}
+                  href={career[currentTab].list[selectedListItem]?.url}
                   target='_blank'
                 >
                   {descriptionData?.organization}
@@ -225,7 +225,7 @@ export default function Carrer() {
               {' - '}
               {descriptionData?.isFinished
                 ? format(descriptionData.endDate, 'MMM yyyy')
-                : t.carrer.present}
+                : t.career.present}
             </span>
           </motion.div>
 
