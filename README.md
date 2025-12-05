@@ -50,7 +50,7 @@ A parte de Carreira também possui internacionalização, mas fica armazenada em
 
 ## Carreira
 
-A parte de carreira está armazenada em um arquivo [carrer.ts](src\app\constants\carrer.ts) na pasta de constantes. 
+A parte de carreira está armazenada em um arquivo [career.ts](src\app\constants\career.ts) na pasta de constantes. 
 
 Essa parte também possui internacionalização, funcionando de forma muito semelhante ao resto do sistema nesse quesito
 

@@ -1,4 +1,4 @@
 export interface MenuSidebarProps {
   changeLanguage: () => void;
-  menuItems: readonly ['about', 'carrer', 'projects', 'contactMe'];
+  menuItems: readonly ['about', 'career', 'skills', 'projects', 'contactMe'];
 }
