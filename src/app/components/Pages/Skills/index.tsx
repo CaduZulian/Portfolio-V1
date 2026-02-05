@@ -28,7 +28,17 @@ export default function Skills() {
 
       <div className={styles.grid}>
         {skillGroups.map((group) => (
-          <div key={group.type} className={styles.group}>
+          <motion.div 
+            key={group.type} 
+            className={styles.group}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 1 },
+            }}
+          >
             <motion.h3
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -67,7 +77,7 @@ export default function Skills() {
                 </motion.span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
