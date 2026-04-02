@@ -1,5 +1,9 @@
 import { LanguagesEnum } from './languages';
 
+const createLocalDate = (year: number, month: number, day: number) => {
+  return new Date(year, month - 1, day);
+};
+
 export type IDescription =
   | {
       name: string;
@@ -50,8 +54,8 @@ export const careerWithTranslations: ICareer = {
               description: {
                 name: 'Analista de Desenvolvimento de Sistemas I na ',
                 organization: 'AIKO',
-                startDate: new Date('2024-12-09'),
-                endDate: new Date('2026-04-01'),
+                startDate: createLocalDate(2024, 12, 9),
+                endDate: createLocalDate(2026, 4, 1),
                 isFinished: true,
                 activityDescription: [
                   'Desenvolvimento de novas telas e componentes.',
@@ -77,8 +81,8 @@ export const careerWithTranslations: ICareer = {
               description: {
                 name: 'Desenvolvedor Front-end - Júnior na ',
                 organization: 'KOR Solutions',
-                startDate: new Date('2023-01-02'),
-                endDate: new Date('2024-12-06'),
+                startDate: createLocalDate(2023, 1, 2),
+                endDate: createLocalDate(2024, 12, 6),
                 isFinished: true,
                 activityDescription: [
                   'Criação de biblioteca para design system',
@@ -97,8 +101,8 @@ export const careerWithTranslations: ICareer = {
               description: {
                 name: 'Desenvolvedor Front-end - Estágio na ',
                 organization: 'KOR Solutions',
-                startDate: new Date('2021-10-20'),
-                endDate: new Date('2022-12-31'),
+                startDate: createLocalDate(2021, 10, 20),
+                endDate: createLocalDate(2022, 12, 31),
                 isFinished: true,
                 activityDescription: [
                   'Criação de novas telas no portal de admin',
@@ -123,7 +127,7 @@ export const careerWithTranslations: ICareer = {
           description: {
             name: 'Bacharelado em Ciência da Computação na ',
             organization: 'Fai - Centro Universitário de Adamantina',
-            startDate: new Date('2023-01-02'),
+            startDate: createLocalDate(2023, 1, 2),
             isFinished: false,
             activityDescription: [
               'Atualmente estou cursando o curso de Ciência da Computação, buscando me aprofundar cada vez mais na área de desenvolvimento de software.',
@@ -138,8 +142,8 @@ export const careerWithTranslations: ICareer = {
           description: {
             name: 'Ensino Médio integrado ao Técnico em Desenvolvimento de Sistemas na ',
             organization: 'ETEC Prof. Eudécio Luiz Vicente',
-            startDate: new Date('2020-01-02'),
-            endDate: new Date('2022-12-31'),
+            startDate: createLocalDate(2020, 1, 2),
+            endDate: createLocalDate(2022, 12, 31),
             isFinished: true,
             activityDescription: [
               'Nesse curso foi onde tive o primeiro contato com a área de desenvolvimento de software, e foi onde decidi que era isso que eu queria fazer.',
@@ -165,7 +169,7 @@ export const careerWithTranslations: ICareer = {
               description: {
                 name: 'Front-end Developer - Junior at ',
                 organization: 'AIKO',
-                startDate: new Date('2024-12-09'),
+                startDate: createLocalDate(2024, 12, 9),
                 isFinished: false,
                 activityDescription: [
                   'Development of new screens and components.',
@@ -191,8 +195,8 @@ export const careerWithTranslations: ICareer = {
               description: {
                 name: 'Front-end Developer - Junior at ',
                 organization: 'KOR Solutions',
-                startDate: new Date('2023-01-02'),
-                endDate: new Date('2024-12-06'),
+                startDate: createLocalDate(2023, 1, 2),
+                endDate: createLocalDate(2024, 12, 6),
                 isFinished: true,
                 activityDescription: [
                   'Creation of a design system library',
@@ -211,8 +215,8 @@ export const careerWithTranslations: ICareer = {
               description: {
                 name: 'Front-end Developer - Internship at ',
                 organization: 'KOR Solutions',
-                startDate: new Date('2021-10-20'),
-                endDate: new Date('2022-12-31'),
+                startDate: createLocalDate(2021, 10, 20),
+                endDate: createLocalDate(2022, 12, 31),
                 isFinished: true,
                 activityDescription: [
                   'Creation of new screens on the admin portal',
@@ -237,7 +241,7 @@ export const careerWithTranslations: ICareer = {
           description: {
             name: "Bachelor's Degree in Computer Science at ",
             organization: 'Fai - Centro Universitário de Adamantina',
-            startDate: new Date('2023-01-02'),
+            startDate: createLocalDate(2023, 1, 2),
             isFinished: false,
             activityDescription: [
               'I am currently studying Computer Science, seeking to deepen my knowledge in the area of software development.',
@@ -252,8 +256,8 @@ export const careerWithTranslations: ICareer = {
           description: {
             name: 'High School integrated with Technical Course in Systems Development at ',
             organization: 'ETEC Prof. Eudécio Luiz Vicente',
-            startDate: new Date('2020-01-02'),
-            endDate: new Date('2022-12-31'),
+            startDate: createLocalDate(2020, 1, 2),
+            endDate: createLocalDate(2022, 12, 31),
             isFinished: true,
             activityDescription: [
               'In this course was where I had the first contact with the area of software development, and it was where I decided that this was what I wanted to do.',
