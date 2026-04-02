@@ -51,7 +51,8 @@ export const careerWithTranslations: ICareer = {
                 name: 'Analista de Desenvolvimento de Sistemas I na ',
                 organization: 'AIKO',
                 startDate: new Date('2024-12-09'),
-                isFinished: false,
+                endDate: new Date('2026-04-01'),
+                isFinished: true,
                 activityDescription: [
                   'Desenvolvimento de novas telas e componentes.',
                   'Criação de interfaces seguindo a identidade visual da empresa.',
