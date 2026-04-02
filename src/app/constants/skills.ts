@@ -49,6 +49,10 @@ export const skillGroups: SkillGroup[] = [
         name: 'Razor Pages',
         iconUrl: '/icons/skills/dot-net-core-7.svg',
       },
+      {
+        name: 'Vite',
+        iconUrl: '/icons/skills/vitejs.svg',
+      }
     ],
   },
   {
@@ -74,6 +78,18 @@ export const skillGroups: SkillGroup[] = [
         name: 'C#',
         iconUrl: '/icons/skills/c--4.svg',
       },
+      {
+        name: 'Python',
+        iconUrl: '/icons/skills/python-5.svg',
+      },
+      {
+        name: 'Java',
+        iconUrl: '/icons/skills/java-14.svg',
+      },
+      {
+        name: 'PHP',
+        iconUrl: '/icons/skills/php-6.svg',
+      }
     ],
   },
   {
@@ -125,12 +141,24 @@ export const skillGroups: SkillGroup[] = [
         iconUrl: '/icons/skills/expressjs.svg',
       },
       {
+        name: 'AdonisJS',
+        iconUrl: '/icons/skills/adonisjs.svg',
+      },
+      {
+        name: 'Fastify',
+        iconUrl: '/icons/skills/fastify.svg',
+      },
+      {
+        name: 'Laravel',
+        iconUrl: '/icons/skills/laravel-2.svg',
+      },
+      {
         name: 'Sequelize',
         iconUrl: '/icons/skills/sequelize.svg',
       },
       {
-        name: 'AdonisJS',
-        iconUrl: '/icons/skills/adonisjs.svg',
+        name: 'Prisma',
+        iconUrl: '/icons/skills/prisma-3.svg',
       },
       {
         name: 'MySQL',
@@ -160,6 +188,10 @@ export const skillGroups: SkillGroup[] = [
       {
         name: 'JIRA',
         iconUrl: '/icons/skills/jira-1.svg',
+      },
+      {
+        name: 'ClickUp',
+        iconUrl: '/icons/skills/clickup.png',
       },
       {
         name: 'Azure DevOps',
