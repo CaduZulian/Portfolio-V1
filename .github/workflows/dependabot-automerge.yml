@@ -1,0 +1,93 @@
+name: Dependabot Auto-Merge & Production Delivery
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  # PASSO 1: Faz o merge automático na branch 'main'
+  merge-to-main:
+    if: github.event_name == 'pull_request' && github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Approve Main PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge for Main PR
+        if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # PASSO 2: Quando entra na 'main', gera a branch PRD, abre o PR e faz o merge na 'production'
+  open-and-merge-prd:
+    if: github.event_name == 'push' && github.event.head_commit.author.name == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@://github.com"
+
+      - name: Generate PRD Branch Name
+        id: branch_info
+        run: |
+          DATE_STR=$(date +'%Y%m%d')
+          
+          # Busca o maior sequencial criado no dia corrente nas branches remotas
+          COUNT=$(git branch -r | grep -o "origin/prd/$DATE_STR\.[0-9]*" | awk -F. '{print $2}' | sort -n | tail -n 1)
+          
+          if [ -z "$COUNT" ]; then
+            NEXT_NUM=1
+          else
+            NEXT_NUM=$((COUNT + 1))
+          fi
+          
+          BRANCH_NAME="prd/$DATE_STR.$NEXT_NUM"
+          echo "name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+
+      - name: Create and Push PRD Branch
+        run: |
+          BRANCH="${{ steps.branch_info.outputs.name }}"
+          git checkout -b "$BRANCH"
+          git push origin "$BRANCH"
+
+      - name: Create, Approve and Merge Production PR
+        run: |
+          # 1. Cria o Pull Request e captura a URL gerada
+          PR_URL=$(gh pr create \
+            --title "Deploy to Production: ${{ steps.branch_info.outputs.name }}" \
+            --body "Automated delivery of Dependabot security updates into production branch." \
+            --base production \
+            --head "${{ steps.branch_info.outputs.name }}")
+          
+          echo "PR Created: $PR_URL"
+          
+          # 2. Aprova o próprio PR criado para a produção
+          gh pr review --approve "$PR_URL"
+          
+          # 3. Executa o merge imediatamente na branch production
+          gh pr merge --merge "$PR_URL"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
